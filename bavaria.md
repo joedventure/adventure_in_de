@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bavaria (Bayern)
+title: 巴伐利亞 (Bayern)
 map_type: state
 permalink: /bavaria/
 cities:
