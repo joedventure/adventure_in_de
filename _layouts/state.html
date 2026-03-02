@@ -1,0 +1,49 @@
+---
+layout: default
+---
+
+<div class="state-container">
+    <h1>{{ page.title }}</h1>
+    
+    <div id="map" style="height: 500px; width: 100%; background: #f0f0f0; border-radius: 8px;"></div>
+
+    <div class="state-content" style="margin-top: 20px;">
+        {{ content }}
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 初始化地圖
+        const map = L.map('map');
+        const baseUrl = "{{ site.baseurl }}";
+        // 取得匹配 GeoJSON 用的名稱 (例如 "Bayern")
+        const targetState = "{{ page.geojson_name }}";
+
+        // 1. 載入並過濾邊界
+        fetch(`${baseUrl}/assets/germany.geojson`)
+            .then(res => res.json())
+            .then(data => {
+                const stateLayer = L.geoJSON(data, {
+                    filter: (feature) => feature.properties.name === targetState,
+                    style: { color: "#ff7800", weight: 3, fillOpacity: 0.1 }
+                }).addTo(map);
+
+                // 自動縮放至該邦
+                if (stateLayer.getBounds().isValid()) {
+                    map.fitBounds(stateLayer.getBounds(), { padding: [30, 30] });
+                }
+            });
+
+        // 2. 標註城市大頭針
+        const cities = {{ page.cities | jsonify }};
+        if (cities) {
+            cities.forEach(city => {
+                L.marker([city.lat, city.lng])
+                    .addTo(map)
+                    .bindPopup(`<b>${city.name}</b><br><a href="${baseUrl}${city.url}">查看景點介紹</a>`);
+            });
+        }
+    });
+</script>
