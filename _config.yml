@@ -5,9 +5,9 @@ description: >-
 baseurl: "/germany-travel" # 如果是個人主頁則留空 ""
 url: "https://adventure_in_DE.github.io"
 
-permalink: /:categories/:title/
+# permalink: /:categories/:title/
 markdown: kramdown
 theme: minima # 或自定義主題
 
 # 廣告設定預留
-google_adsense_client: "ca-pub-xxxxxxxxxxxx"
+#google_adsense_client: "ca-pub-xxxxxxxxxxxx"
