@@ -123,7 +123,8 @@
                             if (cities.length > 0) map.setView([cities[0].lat, cities[0].lng], 8);
                         }
                     });
-            
+
+            //處理城市標記
             const cities = {{ page.cities | jsonify }};
         
             cities.forEach(city => {
@@ -131,7 +132,7 @@
                     .addTo(map)
                     .bindPopup(`<b>${city.name}</b><br><a href="${baseUrl}${city.url}">查看景點介紹</a>`);
             });
-            if (cities.length > 0) map.setView([cities[0].lat, cities[0].lng], 8);
+
             {% endif %}
         }
     </script>
