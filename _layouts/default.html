@@ -113,8 +113,14 @@
                         }).addTo(map);
                         
                         // 3. 自動縮放地圖到該邦的邊界
-                        if (stateLayer.getBounds().isValid()) {
-                            map.fitBounds(stateLayer.getBounds());
+                        if (stateLayer.getLayers().length > 0) {
+                            // 使用 fitBounds 會自動計算該邦所有邊界並將其完整顯示在螢幕內
+                            map.fitBounds(stateLayer.getBounds(), {
+                                padding: [20, 20] // 增加一點邊距，讓邊界不會貼死螢幕邊緣
+                                });
+                        } else {
+                            // 如果 GeoJSON 沒抓到，才退而求其次縮放到第一個城市
+                            if (cities.length > 0) map.setView([cities[0].lat, cities[0].lng], 8);
                         }
                     });
             
