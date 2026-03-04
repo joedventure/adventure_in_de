@@ -145,9 +145,14 @@
                     {% for sibling in siblings %}
                         {% if sibling.lang != page.lang %}
                             <a href="{{ sibling.url | relative_url }}" class="btn btn-lang">
-                                {% if sibling.lang == "zh" %} 🇹🇼 中文
-                                {% elsif sibling.lang == "en" %} 🇺🇸 EN
-                                {% elsif sibling.lang == "de" %} 🇩🇪 DE
+                                {% if sibling.lang == "zh" %}
+                                    <img src="https://flagcdn.com/w20/tw.png" width="20" class="flag-img"> 中文
+                                {% elsif sibling.lang == "en" %}
+                                    <img src="https://flagcdn.com/w20/us.png" width="20" class="flag-img"> EN
+                                {% elsif sibling.lang == "de" %}
+                                    <img src="https://flagcdn.com/w20/de.png" width="20" class="flag-img"> DE
+                                {% elsif sibling.lang == "ja" %}
+                                    <img src="https://flagcdn.com/w20/jp.png" width="20" class="flag-img flag-border"> JP
                                 {% endif %}
                             </a>
                         {% endif %}
