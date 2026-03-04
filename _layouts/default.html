@@ -275,6 +275,25 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
+        const stateTranslations = {
+            "Baden-Württemberg": { en: "Baden-Württemberg", jp: "バーデン＝ヴュルテンベルク州" },
+            "Bayern": { en: "Bavaria", jp: "バイエルン州" },
+            "Berlin": { en: "Berlin", jp: "ベルリン" },
+            "Brandenburg": { en: "Brandenburg", jp: "ブランデンブルク州" },
+            "Bremen": { en: "Bremen", jp: "ブレーメン州" },
+            "Hamburg": { en: "Hamburg", jp: "ハンブルク" },
+            "Hessen": { en: "Hesse", jp: "ヘッセン州" },
+            "Mecklenburg-Vorpommern": { en: "Mecklenburg-Vorpommern", jp: "メクレンブルク＝フォアポンメルン州" },
+            "Niedersachsen": { en: "Lower Saxony", jp: "ニーダーザクセン州" },
+            "Nordrhein-Westfalen": { en: "North Rhine-Westphalia", jp: "ノルトライン＝ヴェストファーレン州" },
+            "Rheinland-Pfalz": { en: "Rhineland-Palatinate", jp: "ラインラント＝プファルツ州" },
+            "Saarland": { en: "Saarland", jp: "ザールラント州" },
+            "Sachsen": { en: "Saxony", jp: "ザクセン州" },
+            "Sachsen-Anhalt": { en: "Saxony-Anhalt", jp: "ザクセン＝アンハルト州" },
+            "Schleswig-Holstein": { en: "Schleswig-Holstein", jp: "シュレースヴィヒ＝ホルシュタイン州" },
+            "Thüringen": { en: "Thuringia", jp: "テューリンゲン州" }
+        };
+        
         const baseUrl = "{{ site.baseurl }}";
         const currentLang = "{{ page.lang }}";
 
@@ -312,19 +331,22 @@
                     geojson = L.geoJSON(data, {
                         style: style,
                         onEachFeature: (feature, layer) => {
+                            // 1. 取得該邦的 ID
+                            const sId = feature.properties.id;
+                
+                            // 2. 根據目前語言抓取名稱，若無對應則回退到 JSON 裡的預設中文名
+                            let displayName = feature.properties.name; 
+                            if (stateTranslations[sId] && stateTranslations[sId][currentLang]) {
+                                displayName = stateTranslations[sId][currentLang];
+                            }
+                            
                             layer.on({
                                 mouseover: highlightFeature,
                                 mouseout: resetHighlight,
                                 // 修正點擊跳轉
                                 click: () => { window.location.href = getLangPath(`/${feature.properties.id}/`); }
                             });
-                            layer.bindTooltip(feature.properties.name);
-
-                            if (feature.properties.capital_lat) {
-                                L.marker([feature.properties.capital_lat, feature.properties.capital_lng])
-                                    .addTo(map)
-                                    .bindPopup(`<b>${feature.properties.name}</b><br><a href="${getLangPath('/' + feature.properties.id + '/')}">Link</a>`);
-                            }
+                            layer.bindTooltip(displayName);
                         }
                     }).addTo(map);
                 });
