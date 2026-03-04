@@ -1,9 +1,8 @@
 ---
 layout: default
-title: 巴伐利亞 (Bayern)
+title: Bavaria
 map_type: state
 state_id: bayern
-state_name: Bavaria 
 permalink: /en/bayern/
 slug: bayern
 lang: en
