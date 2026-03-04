@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 德國城鎮歷史景點全紀錄
+title: 德國城鎮歷史&景點全紀錄
 map_type: germany
 slug: home
 lang: zh
