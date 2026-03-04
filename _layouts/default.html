@@ -85,42 +85,39 @@
         .btn-lang {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             height: 38px;
             padding: 0 15px;
-            font-size: 0.9em;
+            font-size: 14px;
             font-weight: 500;
-            border-radius: 6px;
+            border-radius: 25px; /* 改為圓角與導覽按鈕一致 */
             text-decoration: none;
-            border: none;
-            /* 這裡可以自定義你喜歡的顏色 */
             background-color: #2c3e50; 
-            color: #ffffff !important; /* 強制白色文字 */
-            transition: background-color 0.2s ease, transform 0.1s;
-            cursor: pointer;
+            color: #ffffff !important;
+            transition: opacity 0.2s, transform 0.1s;
         }
 
         .btn-lang:hover {
-            background-color: #2d3748; /* 懸停時顏色加深 */
-            transform: translateY(-1px); /* 輕微浮動效果 */
+            opacity: 0.9;
+            transform: translateY(-1px);
         }
 
-        /* 國旗圖片處理 */
-        .flag-img {
-            width: 20px;
-            margin-right: 8px;
-            border-radius: 2px;
-            display: block;
+        /* 圖示與文字的間距 */
+        .icon-spacing {
+            margin-right: 6px;
+            font-size: 1.1em; /* 讓 Emoji 稍微大一點點看起來更清楚 */
+            line-height: 1;
         }
         
         /* --- 導覽按鈕 --- */
         .nav-buttons { margin-bottom: 20px; display: flex; gap: 10px; }
-        .btn { 
-            display: inline-flex;    /* 讓按鈕變成彈性盒子，這是置中的關鍵 */
-            align-items: center;     /* 垂直置中 */
-            justify-content: center; /* 水平置中 */
-            height: 38px;            /* 強制高度與 .btn-lang 一致 (38px) */
-            padding: 0 18px;         /* 左右維持間距，上下交給 height 處理 */
-            border-radius: 25px; 
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 0 18px;
+            border-radius: 25px;
             text-decoration: none; 
             color: white; 
             font-size: 14px; 
@@ -183,11 +180,11 @@
                         {% if sibling.lang != page.lang %}
                             <a href="{{ sibling.url | relative_url }}" class="btn btn-lang">
                                 {% if sibling.lang == "zh" %}
-                                    <img src="https://flagcdn.com/w20/tw.png" width="20" class="flag-img"> 中文
+                                    <span class="icon-spacing">🇹🇼</span> 中文
                                 {% elsif sibling.lang == "en" %}
-                                    <img src="https://flagcdn.com/w20/us.png" width="20" class="flag-img"> EN
+                                    <span class="icon-spacing">🌍</span> EN
                                 {% elsif sibling.lang == "jp" %}
-                                    <img src="https://flagcdn.com/w20/jp.png" width="20" class="flag-img"> JP
+                                    <span class="icon-spacing">🇯🇵</span> JP
                                 {% endif %}
                             </a>
                         {% endif %}
