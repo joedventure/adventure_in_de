@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 柏林 (Berlin)
+title: ベルリン (Berlin)
 map_type: state
 state_id: berlin
 permalink: /jp/berlin/
 slug: berlin
 lang: jp
 cities:
-  - name: "柏林 (Berlin)"
+  - name: "ベルリン (Berlin)"
     lat: 52.52  
     lng: 13.405
     url: "/berlin/berlin-city/"
