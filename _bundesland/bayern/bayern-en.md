@@ -18,7 +18,7 @@ cities:
 ---
 
 ## Bavaria Exploration Map
-Click the pins on the map and join me as we dive deep into the towns of Bavaria. Or...
+Click the pins on the map above, and join me as we dive deep into the towns of Bavaria. Or...
 
 <div class="quick-access">
     <h3 style="margin-top: 0; font-size: 1.2rem; border-left: 4px solid #3498db; padding-left: 10px; border-bottom: none;">
