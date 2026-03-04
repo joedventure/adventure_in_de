@@ -1,6 +1,6 @@
 ---
 layout: default
-title: バイエルン州 (Bayern) #no need to change
+title: バイエルン州 (Bayern) #no need to change, but good to fit the state name
 map_type: state
 state_id: bayern #need to fit 
 permalink: /jp/bayern/ #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
