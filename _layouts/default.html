@@ -350,6 +350,51 @@
         const baseUrl = "{{ site.baseurl }}";
         const currentLang = "{{ page.lang }}";
         
+        // 1. 下載搜尋索引 (從 YAML 攤平所有城市)
+        const allCities = [
+            {% for state in site.data.cities %}
+                {% for city in state[1] %}
+                    {
+                        "zh": {{ city.zh_name | jsonify }} || "",
+                        "en": {{ city.en_name | jsonify }} || "",
+                        "jp": {{ city.jp_name | jsonify }} || "",
+                        "url": {{ city.url | jsonify }}
+                    }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+                {% endfor %}
+            {% endfor %}
+        ];
+
+        // 2. 搜尋功能 (大小寫不敏感)
+        const searchInput = document.getElementById('citySearch');
+        const resultsDiv = document.getElementById('searchResults');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                resultsDiv.innerHTML = '';
+                if (query.length < 1) { resultsDiv.style.display = 'none'; return; }
+
+                const filtered = allCities.filter(c => 
+                    c.zh.toLowerCase().includes(query) || 
+                    c.en.toLowerCase().includes(query) || 
+                    c.jp.toLowerCase().includes(query)
+                );
+
+                if (filtered.length > 0) {
+                    filtered.forEach(c => {
+                        const a = document.createElement('a');
+                        a.className = 'search-item';
+                        a.textContent = c[currentLang] || c.en;
+                        a.href = getLangPath(c.url);
+                        resultsDiv.appendChild(a);
+                    });
+                    resultsDiv.style.display = 'block';
+                } else {
+                    resultsDiv.style.display = 'none';
+                }
+            });
+        }
+        
         // 建立輔助函式確保 JS 跳轉路徑包含語言前綴
         function getLangPath(path) {
             let langPrefix = "";
