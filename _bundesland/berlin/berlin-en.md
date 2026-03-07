@@ -6,11 +6,6 @@ state_id: berlin
 permalink: /en/berlin/
 slug: berlin
 lang: en
-cities:
-  - name: "Berlin (Berlin)"
-    lat: 52.52  
-    lng: 13.405
-    url: "/berlin/berlin-city/"
 ---
 
 ### 柏林熱門景點
