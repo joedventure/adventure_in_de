@@ -1,6 +1,17 @@
 ---
 layout: default
 ---
+
+{% comment %} 1. 從 _data/cities.yml 根據 URL 抓取該城市的座標資料 {% endcomment %}
+{% assign current_city = nil %}
+{% assign state_data = site.data.cities[page.state_id] %}
+{% for city in state_data %}
+  {% if page.url contains city.url %}
+    {% assign current_city = city %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
 <style>
     .post-header { margin-bottom: 30px; }
     .state-badge { 
@@ -13,17 +24,51 @@ layout: default
         margin-bottom: 10px;
     }
     
+    /* 並排容器：目錄與地圖 */
+    .info-row {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        margin: 20px 0;
+    }
+
     /* 維基百科風格目錄小方格 */
     .toc-box {
         border: 1px solid #a2a9b1;
         background-color: #f8f9fa;
         padding: 15px;
-        display: table; /* 根據內容寬度自動調整 */
+        flex: 1; /* 目錄佔用剩餘空間 */
         min-width: 250px;
-        margin: 20px 0;
         border-radius: 2px;
         font-size: 0.95em;
+        margin: 0 !important;
     }
+    
+    /* 靜態地圖框樣式 */
+    .city-static-map-container {
+        flex: 0 0 300px; /* 固定地圖寬度 */
+        border: 1px solid #a2a9b1;
+        background: #fff;
+        padding: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    #static-map {
+        height: 250px;
+        width: 100%;
+        background: #e9ecef;
+    }
+
+    .map-caption {
+        font-size: 0.85em;
+        padding: 8px 5px;
+        text-align: center;
+        color: #54595d;
+        background: #f8f9fa;
+        border-top: 1px solid #eee;
+        line-height: 1.4;
+    }
+
     .toc-title {
         font-weight: bold;
         text-align: center;
@@ -74,19 +119,30 @@ layout: default
     {% endif %}
 </div>
 
-<div class="toc-box" id="toc-container" style="display: none;">
-    <div class="toc-title">
-        {% if page.lang == "en" %}
-            Table of Contents [<span id="toc-toggle">Hide</span>]
-        {% elsif page.lang == "jp" %}
-            目次 [<span id="toc-toggle">非表示</span>]
-        {% else %}
-            目錄 [<span id="toc-toggle">隱藏</span>]
-        {% endif %}
+{% comment %} 改為並排容器 {% endcomment %}
+<div class="info-row">
+    <div class="toc-box" id="toc-container" style="display: none;">
+        <div class="toc-title">
+            {% if page.lang == "en" %}
+                Table of Contents [<span id="toc-toggle">Hide</span>]
+            {% elsif page.lang == "jp" %}
+                目次 [<span id="toc-toggle">非表示</span>]
+            {% else %}
+                目錄 [<span id="toc-toggle">隱藏</span>]
+            {% endif %}
+        </div>
+        <ul class="toc-list" id="markdown-toc"></ul>
     </div>
-    <ul class="toc-list" id="markdown-toc">
-        {% comment %} 目錄內容由 JavaScript 動態生成 {% endcomment %}
-    </ul>
+
+    {% if current_city.lat %}
+    <div class="city-static-map-container">
+        <div id="static-map"></div>
+        <div class="map-caption">
+            <strong>{{ page.title }}</strong><br>
+            {{ page.state_name }}
+        </div>
+    </div>
+    {% endif %}
 </div>
 
 <article class="post-content">
@@ -101,10 +157,10 @@ layout: default
         const headings = document.querySelectorAll('.post-content h2');
         const lang = "{{ page.lang }}";
         
+        // --- 1. 目錄生成邏輯 ---
         if (headings.length > 0) {
             tocContainer.style.display = 'table'; 
             
-            // 生成目錄列表
             headings.forEach((heading, index) => {
                 const id = `spot-${index}`;
                 heading.setAttribute('id', id);
@@ -118,22 +174,60 @@ layout: default
                 tocList.appendChild(li);
             });
 
-            // 目錄顯示/隱藏切換邏輯
             if (tocToggle) {
                 tocToggle.addEventListener('click', function() {
-                    const isHidden = tocList.style.display === 'block';
-                    tocList.style.display = isHidden ? 'none' : 'block';
+                    const isHidden = tocList.style.display === 'none';
+                    tocList.style.display = isHidden ? 'block' : 'none';
 
-                    // 根據語言設定切換按鈕文字
                     if (lang === "en") {
-                        this.textContent = isHidden ? 'Show' : 'Hide';
+                        this.textContent = isHidden ? 'Hide' : 'Show';
                     } else if (lang === "jp") {
-                        this.textContent = isHidden ? '表示' : '非表示';
+                        this.textContent = isHidden ? '非表示' : '表示';
                     } else {
-                        this.textContent = isHidden ? '顯示' : '隱藏';
+                        this.textContent = isHidden ? '隱藏' : '顯示';
                     }
                 });
             }
+        }
+
+        // --- 2. 自動生成靜態位置圖邏輯 ---
+        const cityLat = {{ current_city.lat | default: 0 }};
+        const cityLng = {{ current_city.lng | default: 0 }};
+        const stateId = "{{ page.state_id }}";
+
+        if (document.getElementById('static-map') && cityLat !== 0) {
+            // 初始化並禁用所有互動功能
+            const staticMap = L.map('static-map', {
+                dragging: false,
+                touchZoom: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                zoomControl: false,
+                attributionControl: false
+            }).setView([cityLat, cityLng], 7); 
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(staticMap);
+
+            // 載入州邊界背景
+            fetch(`${baseUrl}/assets/germany_states.json`)
+                .then(res => res.json())
+                .then(data => {
+                    L.geoJSON(data, {
+                        filter: (f) => (f.id === stateId || f.properties.id === stateId),
+                        style: { color: "#2c3e50", weight: 2, fillColor: "#3498db", fillOpacity: 0.1 }
+                    }).addTo(staticMap);
+                });
+
+            // 畫出城市紅點
+            L.circleMarker([cityLat, cityLng], {
+                radius: 6,
+                fillColor: "#e74c3c",
+                color: "#fff",
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 1
+            }).addTo(staticMap);
         }
     });
 </script>
