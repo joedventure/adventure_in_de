@@ -350,7 +350,18 @@
         const baseUrl = "{{ site.baseurl }}";
         const currentLang = "{{ page.lang }}";
         
-        // 1. 下載搜尋索引 (從 YAML 攤平所有城市)
+        // 建立輔助函式確保 JS 跳轉路徑包含語言前綴
+        function getLangPath(path) {
+            let langPrefix = "";
+            if (currentLang === "en") langPrefix = "/en";
+            else if (currentLang === "jp") langPrefix = "/jp";
+            
+            // 確保路徑拼接不會出現雙斜線
+            const fullPath = `${baseUrl}${langPrefix}${path}`;
+            return fullPath.replace(/\/+/g, '/');
+        }
+        
+        // 下載搜尋索引 (從 YAML 攤平所有城市)
         const allCities = [
             {% for state in site.data.cities %}
                 {% for city in state[1] %}
@@ -364,7 +375,7 @@
             {% endfor %}
         ];
 
-        // 2. 搜尋功能 (大小寫不敏感)
+        // 搜尋功能 (大小寫不敏感)
         const searchInput = document.getElementById('citySearch');
         const resultsDiv = document.getElementById('searchResults');
 
@@ -399,17 +410,6 @@
         document.addEventListener('click', e => {
             if (searchInput && !searchInput.contains(e.target)) resultsDiv.style.display = 'none';
         });
-        
-        // 建立輔助函式確保 JS 跳轉路徑包含語言前綴
-        function getLangPath(path) {
-            let langPrefix = "";
-            if (currentLang === "en") langPrefix = "/en";
-            else if (currentLang === "jp") langPrefix = "/jp";
-            
-            // 確保路徑拼接不會出現雙斜線
-            const fullPath = `${baseUrl}${langPrefix}${path}`;
-            return fullPath.replace(/\/+/g, '/');
-        }
         
         if (document.getElementById('map')) {
             const map = L.map('map').setView([51.1657, 10.4515], 6);
