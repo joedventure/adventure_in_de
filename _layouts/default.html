@@ -478,6 +478,7 @@
 
             // Set map style for each state
             {% elsif page.map_type == "state" %}
+            // 1. 顯示州邊界 (保持你原本的邏輯)
             fetch(`${baseUrl}/assets/germany_states.json`)
                 .then(res => res.json())
                 .then(data => {
@@ -489,13 +490,26 @@
                     if (stateLayer.getLayers().length > 0) map.fitBounds(stateLayer.getBounds(), { padding: [30, 30] });
                 });
 
-            const cities = {{ page.cities | jsonify }};
-            cities.forEach(city => {
-                L.marker([city.lat, city.lng])
-                    .addTo(map)
-                    // 修正景點點擊跳轉
-                    .bindPopup(`<b>${city.name}</b><br><a href="${getLangPath(city.url)}">Click here for more👇🏼</a>`);
-            });
+            // 2. 顯示城市圖釘 (更新為從 _data/cities.yml 抓取)
+            const stateCities = [
+                {% assign raw_cities = site.data.cities[page.state_id] %}
+                {% for city in raw_cities %}
+                    {
+                        "name": {{ city[page.lang | append: "_name"] | jsonify }},
+                        "lat": {{ city.lat }},
+                        "lng": {{ city.lng }},
+                        "url": {{ city.url | jsonify }}
+                    }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
+            ];
+
+            if (typeof map !== 'undefined' && stateCities.length > 0) {
+                stateCities.forEach(city => {
+                    L.marker([city.lat, city.lng])
+                        .addTo(map)
+                        .bindPopup(`<b>${city.name}</b><br><a href="${getLangPath(city.url)}">Click here for more👇🏼</a>`);
+                });
+            }
             {% endif %}
         }
     </script>
