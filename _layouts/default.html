@@ -173,7 +173,21 @@
         }
 
         .leaflet-interactive:hover { cursor: pointer; }
+
+        /*set style of the search bar*/
+        .search-results-dropdown {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: white; border: 1px solid #ddd; border-radius: 8px;
+            z-index: 2000; max-height: 250px; overflow-y: auto;
+             display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 5px;
+        }
+        
+        .search-item { padding: 12px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #eee; }
+        
+        .search-item:hover { background: #f0f7fd; color: #3498db; }
+        
     </style>
+    
 </head>
 <body>
 
@@ -247,6 +261,30 @@
             <div class="content">
                 {{ content }}
             </div>
+
+            {% if page.map_type == "state" %}
+            <div class="quick-access" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 30px 0; border: 1px solid #eee;">
+                <h3 style="margin-top: 0; font-size: 1.2rem; border-left: 4px solid #3498db; padding-left: 10px;">
+                    {% if page.lang == "en" %}Hop on the City Express below 🚅 Guaranteed to be faster than the Deutsche Bahn!
+                    {% elsif page.lang == "jp" %}下の新幹線で直行！🚅 ドイツ鉄道よりも確実に早いです！
+                    {% else %}搭乘下面的城市直達車🚅 絕對比德鐵更快！{% endif %}
+                </h3>
+                <div class="city-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 15px;">
+                    {% assign name_key = page.lang | append: "_name" %}
+                    {% assign state_cities = site.data.cities[page.state_id] %}
+                    {% for city in state_cities %}
+                    {% if page.lang == "en" %}{% assign prefix = "/en" %}
+                    {% elsif page.lang == "jp" %}{% assign prefix = "/jp" %}
+                    {% else %}{% assign prefix = "" %}{% endif %}
+                    <a href="{{ prefix | append: city.url | relative_url }}" 
+                        style="display: block; padding: 10px; background: white; border: 1px solid #3498db; color: #3498db; text-align: center; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500;">
+                        {{ city[name_key] }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
         </main>
 
         <aside class="sidebar">
