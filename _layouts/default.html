@@ -350,7 +350,7 @@
         const baseUrl = "{{ site.baseurl }}";
         const currentLang = "{{ page.lang }}";
         
-        // 1- 建立輔助函式確保 JS 跳轉路徑包含語言前綴
+        // 建立輔助函式確保 JS 跳轉路徑包含語言前綴
         function getLangPath(path) {
             let langPrefix = "";
             if (currentLang === "en") langPrefix = "/en";
