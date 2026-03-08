@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Bavaria (Bayern)        #no need to change, but good to fit the state name
+title: Bavaria (Bayern)        #need to fit translation
 map_type: state
 state_id: bayern               #need to fit 
 permalink: /en/bayern/         #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
