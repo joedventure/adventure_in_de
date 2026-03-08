@@ -2,8 +2,8 @@ baden-wuerttemberg:
   - zh_name: "海德堡 (Heidelberg)"
     en_name: "Heidelberg"
     jp_name: "ハイデルベルク (Heidelberg)"
-    lat: 49.4167
-    lng: 8.7167
+    lat: 49.4088
+    lng: 8.7021
     url: "/baden-wuerttemberg/heidelberg/"
   - zh_name: "曼海姆 (Mannheim)"
     en_name: "Mannheim"
@@ -34,8 +34,8 @@ bayern:
   - zh_name: "羅騰堡 (Rothenburg ob der Tauber)"
     en_name: "Rothenburg ob der Tauber"
     jp_name: "ローテンブルク・オプ・デア・タウバー (Rothenburg ob der Tauber)"
-    lat: 49.3500
-    lng: 10.2000
+    lat: 49.3772
+    lng: 10.1793
     url: "/bayern/rothenburg/"
     
 berlin:
@@ -250,14 +250,14 @@ sachsen:
   - zh_name: "德勒斯登 (Dresden)"
     en_name: "Dresden"
     jp_name: "ドレスデン (Dresden)"
-    lat: 51.0300
-    lng: 13.4424
+    lat: 51.0504
+    lng: 13.7373
     url: "/sachsen/dresden/"
   - zh_name: "包岑 (Bautzen)"
     en_name: "Bautzen"
     jp_name: "バウツェン (Bautzen)"
-    lat: 51.1053
-    lng: 14.2526
+    lat: 51.1815
+    lng: 14.4234
     url: "/sachsen/bautzen/"
   - zh_name: "哥利茲 (Görlitz)"
     en_name: "Görlitz"
@@ -268,8 +268,8 @@ sachsen:
   - zh_name: "萊比錫 (Leipzig)"
     en_name: "Leipzig"
     jp_name: "ライプツィヒ (Leipzig)"
-    lat: 51.4000
-    lng: 12.5000
+    lat: 51.3397
+    lng: 12.3731
     url: "/sachsen/leipzig/"
     
 schleswig-holstein:
