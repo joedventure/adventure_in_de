@@ -1,7 +1,19 @@
-A website for history and must/see sights of German towns, with three-language support (zh, en, jp).
+歡迎來的Joe的德國冒險地圖!
+本專案採用 Jekyll 構建，支援繁體中文、英文與日文三種語系。網站核心架構分為「邦」、「城市」、「景點」三個層次，所有階層的關聯與地圖標點均由中心化資料檔案驅動。
 
-Structure:
-index.html-->home page
+<專案結構邏輯>
+網站的維護邏輯分為以下四個層次：
 
+1. 資料層：
+  _data/cities.yml：存放所有城市與景點的詳細資訊。當需要新增或修改城市時，只需編輯 _data/cities.yml，不需更動任何 Markdown 檔案。
+  assets/germany_states.json：存放德國各邦的地理邊界
+
+2. 佈局層：
+  _layouts/default.html：負責地圖初始化，主頁以及邦頁面的架構
+  _layouts/post.html：負責城市介紹頁面的架構
+
+3. 邦頁面：自動顯示該邦所屬的城市清單。
+
+4. 城市介紹頁面：包含城市歷史以及景點介紹，包含目錄以及一個靜態地圖。
 
 
