@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 布萊梅 (Bremen)        
+title: Bremen (Bremen)        
 map_type: state
 state_id: bremen               
 permalink: /en/bremen/           #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
