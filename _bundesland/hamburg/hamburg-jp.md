@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 漢堡 (Hamburg)        
+title: ハンブルク (Hamburg)        
 map_type: state
 state_id: hamburg               
 permalink: /jp/hamburg/           #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
