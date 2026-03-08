@@ -53,6 +53,24 @@ brandenburg:
     lat: 52.3419
     lng: 14.5517
     url: "/brandenburg/frankfurt-oder/"
+  - zh_name: "尤特博格 (Jüterbog)"
+    en_name: "Jüterbog"
+    jp_name: "ユーターボーク (Jüterbog)"
+    lat: 51.9908
+    lng: 13.0836
+    url: "/brandenburg/jueterbog/"
+  - zh_name: "波茨坦 (Potsdam)"
+    en_name: "Potsdam"
+    jp_name: "ポツダム (Potsdam)"
+    lat: 52.3906
+    lng: 13.0645
+    url: "/brandenburg/potsdam/"
+  - zh_name: "溫斯多夫 (Wünsdorf)"
+    en_name: "Wünsdorf"
+    jp_name: "ヴュンスドルフ (Wünsdorf)"
+    lat: 52.1914
+    lng: 13.4683
+    url: "/brandenburg/wuensdorf/"
     
 bremen:
   - zh_name: "不萊梅 (Bremen)"
