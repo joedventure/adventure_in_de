@@ -7,5 +7,5 @@ permalink: /schleswig-holstein/         #for en or jp, add /en or /jp in front o
 slug: schleswig-holstein                   #need to fit. When state name and city name is the same, use -city suffix for city, eg. berlin-city
 lang: zh                       #choose one: zh, en, jp
 ---
-## 巴伐利亞探索地圖
-點擊地圖上的圖釘，跟我一起深入探索巴伐利亞的各個城鎮。或是…
+## 什勒斯維希-霍爾斯坦探索地圖
+點擊地圖上的圖釘，跟我一起深入探索什勒斯維希-霍爾斯坦的各個城鎮。或是…
