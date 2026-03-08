@@ -1,5 +1,23 @@
 baden-wuerttemberg:
-
+  - zh_name: "海德堡 (Heidelberg)"
+    en_name: "Heidelberg"
+    jp_name: "ハイデルベルク (Heidelberg)"
+    lat: 49.4167
+    lng: 8.7167
+    url: "/baden-wuerttemberg/heidelberg/"
+  - zh_name: "曼海姆 (Mannheim)"
+    en_name: "Mannheim"
+    jp_name: "マンハイム (Mannheim)"
+    lat: 49.4878
+    lng: 8.4661
+    url: "/baden-wuerttemberg/mannheim/"
+  - zh_name: "弗萊堡 (Freiburg im Breisgau)"
+    en_name: "Freiburg im Breisgau"
+    jp_name: "フライブルク (Freiburg im Breisgau)"
+    lat: 47.9990
+    lng: 7.8421
+    url: "/baden-wuerttemberg/freiburg/"
+    
 bayern:
   - zh_name: "慕尼黑 (München)"
     en_name: "Munich (München)"
@@ -13,7 +31,13 @@ bayern:
     lat: 49.4521
     lng: 11.0767
     url: "/bayern/nuernberg/"
-
+  - zh_name: "羅騰堡 (Rothenburg ob der Tauber)"
+    en_name: "Rothenburg ob der Tauber"
+    jp_name: "ローテンブルク・オプ・デア・タウバー (Rothenburg ob der Tauber)"
+    lat: 49.3500
+    lng: 10.2000
+    url: "/bayern/rothenburg/"
+    
 berlin:
   - zh_name: "柏林 (Berlin)"
     en_name: "Berlin (Berlin)"
@@ -23,27 +47,231 @@ berlin:
     url: "/berlin/berlin-city/"
 
 brandenburg:
-
+  - zh_name: "奧得河畔法蘭克福 (Frankfurt an der Oder)"
+    en_name: "Frankfurt an der Oder"
+    jp_name: "フランクフルト・アン・デア・オーダー (Frankfurt an der Oder)"
+    lat: 52.3419
+    lng: 14.5517
+    url: "/brandenburg/frankfurt-oder/"
+    
 bremen:
-
+  - zh_name: "不萊梅 (Bremen)"
+    en_name: "Bremen"
+    jp_name: "ブレーメン (Bremen)"
+    lat: 53.0793
+    lng: 8.8017
+    url: "/bremen/bremen/"
+    
 hamburg:
-
+  - zh_name: "漢堡 (Hamburg)"
+    en_name: "Hamburg"
+    jp_name: "ハンブルク (Hamburg)"
+    lat: 53.5511
+    lng: 9.9937
+    url: "/hamburg/hamburg/"
+    
 hessen:
-
+  - zh_name: "倫克爾 (Runkel)"
+    en_name: "Runkel"
+    jp_name: "ルンケル (Runkel)"
+    lat: 50.4053
+    lng: 8.1559
+    url: "/hessen/runkel/"
+  - zh_name: "美因河畔法蘭克福 (Frankfurt am Main)"
+    en_name: "Frankfurt am Main"
+    jp_name: "フランクフルト・アム・マイン (Frankfurt am Main)"
+    lat: 50.1106
+    lng: 8.6822
+    url: "/hessen/frankfurt-am-main/"
+  - zh_name: "洛爾施 (Lorsch)"
+    en_name: "Lorsch"
+    jp_name: "ロルシュ (Lorsch)"
+    lat: 49.6539
+    lng: 8.5675
+    url: "/hessen/lorsch/"
+  - zh_name: "黑彭海姆 (Heppenheim)"
+    en_name: "Heppenheim"
+    jp_name: "ヘッペンハイム (Heppenheim)"
+    lat: 49.6431
+    lng: 8.6389
+    url: "/hessen/heppenheim/"
+  - zh_name: "達姆施塔特 (Darmstadt)"
+    en_name: "Darmstadt"
+    jp_name: "ダルムシュタット (Darmstadt)"
+    lat: 49.8722
+    lng: 8.6528
+    url: "/hessen/darmstadt/"
+  - zh_name: "威斯巴登 (Wiesbaden)"
+    en_name: "Wiesbaden"
+    jp_name: "ヴィースバーデン (Wiesbaden)"
+    lat: 50.0825
+    lng: 8.2400
+    url: "/hessen/wiesbaden/"
+  - zh_name: "蘭河畔林堡 (Limburg an der Lahn)"
+    en_name: "Limburg an der Lahn"
+    jp_name: "リンブルク・アン・デア・ラーン (Limburg an der Lahn)"
+    lat: 50.3833
+    lng: 8.0667
+    url: "/hessen/limburg-an-der-lahn/"
+  - zh_name: "米歇爾施塔特 (Michelstadt)"
+    en_name: "Michelstadt"
+    jp_name: "ミッシェルシュタット (Michelstadt)"
+    lat: 49.6786
+    lng: 9.0039
+    url: "/hessen/michelstadt/"
+  - zh_name: "呂德斯海姆 (Rüdesheim)"
+    en_name: "Rüdesheim am Rhein"
+    jp_name: "リューデスハイム (Rüdesheim am Rhein)"
+    lat: 49.9833
+    lng: 7.9306
+    url: "/hessen/ruedesheim/"
+    
 mecklenburg-vorpommern:
-
+  - zh_name: "施威林 (Schwerin)"
+    en_name: "Schwerin"
+    jp_name: "シュヴェリーン (Schwerin)"
+    lat: 53.6290
+    lng: 11.4148
+    url: "/mecklenburg-vorpommern/schwerin/"
+  - zh_name: "威斯馬 (Wismar)"
+    en_name: "Wismar"
+    jp_name: "ヴィスマール (Wismar)"
+    lat: 53.8925
+    lng: 11.4647
+    url: "/mecklenburg-vorpommern/wismar/"
+    
 niedersachsen:
-
+  - zh_name: "漢諾威 (Hannover)"
+    en_name: "Hanover (Hannover)"
+    jp_name: "ハノーファー (Hannover)"
+    lat: 52.3759
+    lng: 9.7320
+    url: "/niedersachsen/hannover/"
+    
 nordrhein-westfalen:
-
+  - zh_name: "科隆 (Köln)"
+    en_name: "Cologne (Köln)"
+    jp_name: "ケルン (Köln)"
+    lat: 50.9364
+    lng: 6.9528
+    url: "/nordrhein-westfalen/koeln/"
+  - zh_name: "波昂 (Bonn)"
+    en_name: "Bonn"
+    jp_name: "ボン (Bonn)"
+    lat: 50.7353
+    lng: 7.1022
+    url: "/nordrhein-westfalen/bonn/"
+  - zh_name: "阿亨 (Aachen)"
+    en_name: "Aachen"
+    jp_name: "アーヘン (Aachen)"
+    lat: 50.7756
+    lng: 6.0836
+    url: "/nordrhein-westfalen/aachen/"
+    
 rheinland-pfalz:
-
+  - zh_name: "美因茨 (Mainz)"
+    en_name: "Mainz"
+    jp_name: "マインツ (Mainz)"
+    lat: 49.9994
+    lng: 8.2736
+    url: "/rheinland-pfalz/mainz/"
+  - zh_name: "特里爾 (Trier)"
+    en_name: "Trier"
+    jp_name: "トリーア (Trier)"
+    lat: 49.7567
+    lng: 6.6414
+    url: "/rheinland-pfalz/trier/"
+  - zh_name: "沃姆斯 (Worms)"
+    en_name: "Worms"
+    jp_name: "ヴォルムス (Worms)"
+    lat: 49.6319
+    lng: 8.3652
+    url: "/rheinland-pfalz/worms/"
+  - zh_name: "斯派爾 (Speyer)"
+    en_name: "Speyer"
+    jp_name: "シュパイアー (Speyer)"
+    lat: 49.3194
+    lng: 8.4311
+    url: "/rheinland-pfalz/speyer/"
+  - zh_name: "巴特明斯特 (Bad Münster am Stein-Ebernburg)"
+    en_name: "Bad Münster am Stein-Ebernburg"
+    jp_name: "バート・ミュンスター・アム・シュタイン＝エーベルンブルク"
+    lat: 49.8092
+    lng: 7.8439
+    url: "/rheinland-pfalz/bad-muenster/"
+  - zh_name: "科布倫茲 (Koblenz)"
+    en_name: "Koblenz"
+    jp_name: "コブレンツ (Koblenz)"
+    lat: 50.3597
+    lng: 7.5978
+    url: "/rheinland-pfalz/koblenz/"
+    
 saarland:
-
+  - zh_name: "薩爾布魯根 (Saarbrücken)"
+    en_name: "Saarbrücken"
+    jp_name: "ザールブリュッケン (Saarbrücken)"
+    lat: 49.2333
+    lng: 7.0000
+    url: "/saarland/saarbruecken/"
+    
 sachsen-anhalt:
-
+  - zh_name: "馬德堡 (Magdeburg)"
+    en_name: "Magdeburg"
+    jp_name: "マグデブルク (Magdeburg)"
+    lat: 52.1317
+    lng: 11.6392
+    url: "/sachsen-anhalt/magdeburg/"
+  - zh_name: "奎德林堡 (Quedlinburg)"
+    en_name: "Quedlinburg"
+    jp_name: "クヴェドリンブルク (Quedlinburg)"
+    lat: 51.7897
+    lng: 11.1433
+    url: "/sachsen-anhalt/quedlinburg/"
+    
 sachsen:
-
+  - zh_name: "德勒斯登 (Dresden)"
+    en_name: "Dresden"
+    jp_name: "ドレスデン (Dresden)"
+    lat: 51.0300
+    lng: 13.4424
+    url: "/sachsen/dresden/"
+  - zh_name: "包岑 (Bautzen)"
+    en_name: "Bautzen"
+    jp_name: "バウツェン (Bautzen)"
+    lat: 51.1053
+    lng: 14.2526
+    url: "/sachsen/bautzen/"
+  - zh_name: "哥利茲 (Görlitz)"
+    en_name: "Görlitz"
+    jp_name: "ゲルリッツ (Görlitz)"
+    lat: 51.1528
+    lng: 14.9872
+    url: "/sachsen/goerlitz/"
+  - zh_name: "萊比錫 (Leipzig)"
+    en_name: "Leipzig"
+    jp_name: "ライプツィヒ (Leipzig)"
+    lat: 51.4000
+    lng: 12.5000
+    url: "/sachsen/leipzig/"
+    
 schleswig-holstein:
-
+  - zh_name: "呂貝克 (Lübeck)"
+    en_name: "Lübeck"
+    jp_name: "リューベック (Lübeck)"
+    lat: 53.8655
+    lng: 10.6866
+    url: "/schleswig-holstein/luebeck/"
+    
 thueringen:
+  - zh_name: "耶拿 (Jena)"
+    en_name: "Jena"
+    jp_name: "イェーナ (Jena)"
+    lat: 50.9272
+    lng: 11.5861
+    url: "/thueringen/jena/"
+  - zh_name: "艾爾福特 (Erfurt)"
+    en_name: "Erfurt"
+    jp_name: "エアフルト (Erfurt)"
+    lat: 50.9787
+    lng: 11.0328
+    url: "/thueringen/erfurt/"
