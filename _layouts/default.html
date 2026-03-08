@@ -322,7 +322,8 @@
                     {% if page.lang == "en" %}A leisurely traveler in Germany<br>Skilled at typing and sharing histories{% elsif page.lang == "jp" %}ドイツに住んでいて（多少の余暇時間あり）<br>歴史的な話をタイピングして共有するのが得意な人{% else %}旅居德國的(閒)人<br>擅長打字、分享歷史故事{% endif %}
                 </p>
             </section>
-            
+
+            {% comment %} Placeholder for website visitor count
             <section class="sidebar-card">
                 <h3>📈 
                     {% if page.lang == "en" %}Statistics{% elsif page.lang == "jp" %}統計{% else %}網站統計{% endif %}
@@ -330,6 +331,8 @@
                 <p style="font-size: 14px; margin-bottom: 5px;">{% if page.lang == "en" %}Total Visitors:{% elsif page.lang == "jp" %}累計訪問者数：{% else %}總訪客人數：{% endif %}</p>
                 <span class="visitor-stat" id="busuanzi_value_site_pv">--</span>
             </section>
+            {% endcomment %}
+            
         </aside>
     </div>
 
@@ -338,13 +341,22 @@
         <i class="footer-line">Copyright © {{ "now" | date: "%Y" }} Adventure_in_de。保留所有權利。本專案之原創內容（包括但不限於文字、圖片、設計、程式碼及多媒體素材）均受國際著作權法保護。未經授權，嚴禁任何形式之轉載、修改、散佈、公開傳輸或商業使用，違者必究。</i>
         <i class="footer-line">AI-powered translation--Feedback on improvements is appreciated!</i>
         <i class="footer-line" style="font-size: 12px; opacity: 0.7; margin-top: 10px;">
+        Powered by <a href="https://leafletjs.com/" target="_blank" style="color: inherit;">Leaflet</a> & 
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: inherit;">OpenStreetMap</a> contributors 
+        </i>    
+            
+        {% comment %} leave out the note for page visitor count   
         Powered by <a href="https://leafletjs.com/" target="_blank" style="color: inherit;">Leaflet</a>, 
         <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: inherit;">OpenStreetMap</a> contributors & 
         <a href="https://busuanzi.ibruce.info/" target="_blank" style="color: inherit;">Busuanzi</a>. 
-    </i>
+        {% endcomment %}    
+            
     </footer>
 
+    {% comment %} Placeholder for page visitor count
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    {% endcomment %}
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>      
         const baseUrl = "{{ site.baseurl }}";
