@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 什勒斯維希-霍爾斯坦       #need to fit translation
+title: 什勒斯維希-霍爾斯坦 (Schleswig-Holstein)      #need to fit translation
 map_type: state
 state_id: schleswig-holstein               #need to fit 
 permalink: /schleswig-holstein/         #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
