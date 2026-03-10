@@ -1,10 +1,14 @@
 ---
-layout: special
+layout: post
+show_map: false
 title: "中萊茵河谷城堡巡禮"
+slug: mittelrheintal
 lang: zh
-data_source: rhein_castle
-map_center: 49.97, 7.89
 permalink: /mittelrheintal/
+# 加入下面這幾行來觸發地圖容器生成
+current_city:
+  lat: 50.0
+  lng: 7.7
 ---
 
 中萊茵河谷作為世界文化遺產，當然有需要好好的介紹一下。
@@ -302,3 +306,71 @@ Kastell Bodobrica在不同世紀中扮演了多重角色。七世紀時，法蘭
 
 自1970年起，要塞由給萊茵蘭-法爾茲邦的文化遺產部門管理，並轉型為多元化的文化空間，設有科布倫茨州立博物館（Landesmuseum Koblenz），涵蓋考古、技術史等豐富展覽。造訪這座古蹟，除了選擇步行抵達，搭乘纜車橫跨萊茵河更是一個絕佳體驗。欣賞壯麗的河景，以及在廣闊的要塞中漫步，都可以親身感受其橫跨千年的歷史。
 
+<style>
+    /* 讓地圖與目錄並排，並放大地圖 */
+    .info-row { display: flex !important; flex-wrap: wrap !important; gap: 20px !important; }
+    .city-static-map-container { flex: 2 1 450px !important; display: block !important; }
+    #static-map { height: 450px !important; width: 100% !important; }
+    .toc-box { flex: 1 1 250px !important; }
+    @media (max-width: 900px) { #static-map { height: 350px !important; } }
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        const mapElement = document.getElementById('static-map');
+        if (!mapElement) return;
+
+        // 清除原本 post.html 生成的小地圖
+        if (mapElement._leaflet_id) {
+            mapElement._leaflet_id = null;
+            mapElement.innerHTML = "";
+        }
+
+        // 1. 初始化互動地圖 (中心設在萊茵河谷)
+        const mainMap = L.map('static-map').setView([49.97, 7.89], 11);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(mainMap);
+
+        // 2. 載入州界 GeoJSON
+        fetch("{{ site.baseurl }}/assets/germany_states.json")
+            .then(res => res.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: { color: "#2c3e50", weight: 1, fillOpacity: 0.05 }
+                }).addTo(mainMap);
+            });
+
+        // 3. 城堡資料 (直接注入)
+        const locations = [
+          {% for item in site.data.rhein_castles %}
+          {
+            name: "{{ item[page.lang | append: '_name'] | default: item.en_name }}",
+            lat: {{ item.lat }},
+            lng: {{ item.lng }}
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ];
+
+        // 4. 畫標點
+        if (locations.length > 0) {
+            locations.forEach(loc => {
+                L.marker([loc.lat, loc.lng])
+                 .addTo(mainMap)
+                 .bindPopup(`<b>${loc.name}</b>`)
+                 .bindTooltip(loc.name, { direction: 'top', offset: [0, -10] });
+            });
+        }
+
+        // 5. 更新標題
+        const caption = document.querySelector('.map-caption strong');
+        if (caption) caption.textContent = "中萊茵河谷城堡分佈圖";
+
+    }, 300); // 延遲 300ms 確保覆蓋掉原本 post.html 的地圖邏輯
+});
+</script>
