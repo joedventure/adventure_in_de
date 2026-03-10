@@ -3,102 +3,100 @@ layout: post
 ---
 
 <style>
-    /* 1. 調整 info-row 讓目錄與地圖容器在大螢幕並排 */
+    /* 1. 強制讓地圖容器在大螢幕與目錄並排 */
     .info-row {
-        display: flex;
-        flex-wrap: wrap; 
-        gap: 20px;
-        align-items: stretch;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 20px !important;
     }
 
-    /* 2. 重新定義地圖容器的大小，覆蓋 post.html 的限制 */
+    /* 2. 擴大地圖容器的寬度與高度 */
     .city-static-map-container {
-        flex: 2 1 500px !important; /* 寬度佔比增加 */
-        height: 450px;
-        display: block !important; /* 確保顯示 */
+        flex: 2 1 450px !important;
+        display: block !important; /* 確保地圖容器顯示 */
+        height: auto !important;
     }
 
     #static-map {
-        height: 380px !important; /* 增加高度 */
+        height: 450px !important; /* 增加地圖高度 */
         width: 100% !important;
     }
 
-    /* 3. 目錄盒子維持原樣但確保並排 */
     .toc-box {
-        flex: 1 1 250px;
+        flex: 1 1 250px !important;
     }
 
     @media (max-width: 900px) {
-        .city-static-map-container {
-            height: 350px;
-        }
-        #static-map { height: 280px !important; }
+        .city-static-map-container { flex: 1 1 auto !important; }
+        #static-map { height: 350px !important; }
     }
 </style>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // 獲取 post.html 已經產生的地圖容器
-    const mapElement = document.getElementById('static-map');
-    if (!mapElement) return;
+    // 延遲一小段時間確保 post.html 的地圖已經初始化
+    setTimeout(function() {
+        const mapElement = document.getElementById('static-map');
+        if (!mapElement) return;
 
-    // 清除 post.html 可能已經在地圖上畫的東西（如果有）
-    if (mapElement._leaflet_id) {
-        mapElement._leaflet_id = null; 
-        mapElement.innerHTML = "";
-    }
+        // 取得 Leaflet 地圖實例 (post.html 裡面創立的那個)
+        // 由於 Leaflet 不方便直接抓取現有實例，我們直接重繪
+        if (mapElement._leaflet_id) {
+            mapElement._leaflet_id = null;
+            mapElement.innerHTML = "";
+        }
 
-    // 1. 初始化互動地圖
-    const mapCenter = [{{ page.map_center | default: "50.05, 7.75" }}];
-    const zoomLevel = {{ page.map_zoom | default: 11 }};
-    const mainMap = L.map('static-map').setView(mapCenter, zoomLevel);
+        const mapCenter = [{{ page.map_center | default: "50.05, 7.75" }}];
+        const zoomLevel = {{ page.map_zoom | default: 11 }};
+        const mainMap = L.map('static-map').setView(mapCenter, zoomLevel);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap'
-    }).addTo(mainMap);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap'
+        }).addTo(mainMap);
 
-    // 2. 載入州界 GeoJSON
-    fetch("{{ site.baseurl }}/assets/germany_states.json")
-        .then(res => res.json())
-        .then(data => {
-            L.geoJSON(data, {
-                style: { color: "#2c3e50", weight: 1, fillOpacity: 0.05 }
-            }).addTo(mainMap);
-        });
+        // 載入州界
+        fetch("{{ site.baseurl }}/assets/germany_states.json")
+            .then(res => res.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: { color: "#2c3e50", weight: 1, fillOpacity: 0.05 }
+                }).addTo(mainMap);
+            });
 
-    // 3. 從 _data 資料夾載入標點
-    const locations = [
-      {% assign data_name = page.data_source %}
-      {% if site.data[data_name] %}
-        {% for item in site.data[data_name] %}
-        {
-          name: "{{ item[page.lang | append: '_name'] | default: item.en_name }}",
-          lat: {{ item.lat }},
-          lng: {{ item.lng }}
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      {% endif %}
-    ];
+        // 載入城堡標點
+        const locations = [
+          {% assign data_name = page.data_source %}
+          {% if site.data[data_name] %}
+            {% for item in site.data[data_name] %}
+            {
+              name: "{{ item[page.lang | append: '_name'] | default: item.en_name }}",
+              lat: {{ item.lat }},
+              lng: {{ item.lng }}
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          {% endif %}
+        ];
 
-    locations.forEach(loc => {
-        const marker = L.marker([loc.lat, loc.lng]).addTo(mainMap);
-        marker.bindPopup(`<b>${loc.name}</b>`);
-        marker.bindTooltip(loc.name, { direction: 'top', offset: [0, -10] });
-    });
+        if (locations.length > 0) {
+            const markers = [];
+            locations.forEach(loc => {
+                const marker = L.marker([loc.lat, loc.lng]).addTo(mainMap);
+                marker.bindPopup(`<b>${loc.name}</b>`);
+                marker.bindTooltip(loc.name, { direction: 'top', offset: [0, -10] });
+                markers.push([loc.lat, loc.lng]);
+            });
+            
+            // 如果沒設定 center，自動縮放到包含所有點
+            {% if page.map_center == nil %}
+            mainMap.fitBounds(markers);
+            {% endif %}
+        }
 
-    // 4. 更新標題（選用）
-    const caption = document.querySelector('.map-caption strong');
-    if (caption) {
-        {% if page.lang == "zh" %}
-            caption.textContent = "中萊茵河谷城堡分佈圖";
-        {% elsif page.lang == "jp" %}
-            caption.textContent = "中ライン渓谷の城マップ";
-        {% else %}
-            caption.textContent = "Middle Rhine Castles Map";
-        {% endif %}
-    }
+        // 修改標題文字
+        const caption = document.querySelector('.map-caption strong');
+        if (caption) {
+            caption.textContent = "{% if page.lang == 'zh' %}中萊茵河谷城堡分佈圖{% else %}Rhine Castles Map{% endif %}";
+        }
+    }, 100); // 延遲 100ms 避開 post.html 的執行
 });
 </script>
