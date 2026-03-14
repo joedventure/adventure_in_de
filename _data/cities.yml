@@ -48,16 +48,19 @@ bayern:
     jp_name: "ディンケルスビュール (Dinkelsbühl)"
     lat: 49.0696
     lng: 10.3195
+    url: "/bayern/dinkelsbuehl/"
   - zh_name: "諾德林根 (Nördlingen)"
     en_name: "Nördlingen"
     jp_name: "ネルトリンゲン (Nördlingen)"
     lat: 48.8507
     lng: 10.4883
+    url: "/bayern/noerdlingen/"
   - zh_name: "烏茲堡 (Würzburg)"
     en_name: "Würzburg"
     jp_name: "ヴュルツブルク (Würzburg)"
     lat: 49.7913
     lng: 9.9534
+    url: "/bayern/Wuerzburg/"
     
 berlin:
   - zh_name: "柏林 (Berlin)"
