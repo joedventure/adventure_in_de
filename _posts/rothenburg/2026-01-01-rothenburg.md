@@ -33,6 +33,6 @@ permalink: /bayern/rothenburg/
    
 2. 烏茲堡門（Würzburger Tor）建於1388年。他的第二個名字Galgentor源自於當時設立在門外所謂上的絞刑架。
    
-3. Spitaltor：Spital區是羅騰堡老城最後一個被城牆包圍的區域。在Spital城門，我們可以看到羅騰堡當時最先進的防禦工事，以及於1546年完工的堡壘。在Spitaltor，羅騰堡以拉丁語迎接訪客：Pax intrantibus, salus exeuntibus.（意為「進者平安，出者健康」）。由於這句銘言極其貼切，東京羽田機場直接把他拿來作為座右銘。
+3. 司伯特門（Spitaltor）：Spital區是羅騰堡老城最後一個被城牆包圍的區域。在Spital城門，我們可以看到羅騰堡當時最先進的防禦工事，以及於1546年完工的堡壘。在Spitaltor，羅騰堡以拉丁語迎接訪客：Pax intrantibus, salus exeuntibus.（意為「進者平安，出者健康」）。由於這句銘言極其貼切，東京羽田機場直接把他拿來作為座右銘。
 
-4.馬庫斯塔（Markusturm）:馬庫斯塔約在1200年與第一圈城牆一同建成，與鄰近的羅德噴泉（Röderbrunnen）共同構成了一幅如畫的景致。依偎在馬庫斯塔旁的是始建於1264年的海關樓。五百多年來這裡一直為過往旅客提供住所，如今仍然作為家族經營的飯店Romantik Hotel Markusturm。
+4. 馬庫斯塔（Markusturm）:馬庫斯塔約在1200年與第一圈城牆一同建成，與鄰近的羅德噴泉（Röderbrunnen）共同構成了一幅如畫的景致。依偎在馬庫斯塔旁的是始建於1264年的海關樓。五百多年來這裡一直為過往旅客提供住所，如今仍然作為家族經營的飯店Romantik Hotel Markusturm。
