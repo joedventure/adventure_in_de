@@ -21,6 +21,7 @@ permalink: /brandenburg/wuensdorf/
 德國統一後，蘇軍和平撤離，過去的禁城也被改作民用，現在已經有許多住宅區相繼建成，為一個清幽的居住地。以往的蘇聯軍事總部，現在可以由導覽的方式入內參觀，探索這裡神秘過往。
 
 ## 溫斯多夫蘇聯軍事基地舊址（Das Haus der Offiziere）
+![Wünsdorf Haus der Offiziere]({{ site.baseurl }}/_image/Wünsdorf/Wünsdorf.jpg)
 溫斯多夫現在還有幾個地點可以跟團參訪，包括邁巴赫一/二號地堡群、齊柏林通訊地堡以及Das Haus der Offiziere，也就是以前部隊訓練的地方。
 
 這次參加的導覽是Haus der Offiziere，一共包含了游泳池，操場，劇院以及宿舍等。據導遊所說，這一大片區域可以花一千萬歐買下，乍聽之下好像還好，可是這裡是古蹟保護區，所以買了之後要定期維護，所以我看還是不要有這個念頭比較實在😅
