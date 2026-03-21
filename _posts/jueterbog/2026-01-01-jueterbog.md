@@ -24,6 +24,7 @@ permalink: /brandenburg/jueterbog/
 現在的Jüterbog有保存完好的老城與許多紅磚建成的中世紀建築，是柏林近郊非常值得一逛的古城。
 
 ## 尤特博格古城牆與城門
+![Jüterbog Dammtor]({{ site.baseurl }}/_image/Jüterbog/Jüterbog_Dammtor.jpg)
 尤特博格的一個看點是它以紅磚建成的古城牆以及保存完好的城門，如北邊的Zinnaer Tor、西邊的Dammtor以及東邊的Neumarkttor。而尤特博格的經典的視角就位於Dammtor。仔細看，你會發現城門上有一個牌子寫著「給孩子麵包，自己卻挨餓的人，就應該用棍棒打死。」（Wer seinen Kindern gibt das Brot und leidet nachmals selber Noth, den schlage man mit der Keule todt）。
 
 這句話並不是說我們要崇尚暴力，而是作為一種象徵。根據傳說，一位曾經富有的布商生前將財產全部分給了他的兒子們，後來卻因兒子們的冷落而變得一貧如洗，而他在死前只留下了這塊刻著格言的牌匾。或許這與反映著中世紀人們強調審慎理財的處世哲學吧！
@@ -37,11 +38,13 @@ permalink: /brandenburg/jueterbog/
 現在，這座歷史悠久的建築依然作為市政府的行政中心使用，而別具歷史意義的諸侯室則成為了市長的辦公室。
 
 ## 聖尼古拉教堂（Nikolaikirche）
+![Jüterbog_Nikolaikirche]({{ site.baseurl }}/_image/Jüterbog/Jüterbog_Nikolaikirche.jpg)
 尤特博格聖尼古拉教堂是布蘭登堡地區保存最完好的哥德式大廳教堂之一，於1307年首次被明確記載於文獻中。教堂以兩座不同形狀的雙塔為特色，展現出當時城鎮的財富。
 
 聖尼古拉教堂在宗教改革時期扮演著一個重要的舞台。1519年，馬丁路德的學生Franz Günther在此宣講改革思想，引發方濟各會修士的強烈反對並最終被下達禁言令。不過著名的神學家Thomas Müntzer隨後接替他在教堂內講道，並與方濟各會的負責人展開了激烈的辯論。歷史意義重大的是，在方濟各會寫給布蘭登堡主教的投訴信中，這些新教義的追隨者歷史上首次被稱為路德宗。直到1540年，大主教允許該鎮自由進行宗教活動，聖尼古拉教堂才正式成為新教（福音派）教堂。
 
 ## 約翰·特策爾（Johann Tetzel）的故事與傳說
+![Tezel-Kasten]({{ site.baseurl }}/_image/Jüterbog/Jüterbog_Kiste.jpg)
 尤特博格的聖尼古拉教堂在宗教改革時期，曾是贖罪券大賣的熱點。當時著名的道明會修士泰澤爾（Johann Tetzel）曾此用一句極具煽動性的順口溜吸引信眾購買贖罪券：「金幣一響，跳入天堂。」（Wenn das Geld im Kasten klingt, die Seele in den Himmel springt）。他宣稱，只要捐錢資助羅馬聖彼得大教堂的重建，即可縮短在煉獄受苦的時間。然而，泰澤爾在尤特博格的巨大商業成功徹底激怒了在維滕貝格（Wittenberg）的馬丁路德，促使他在1517年憤而起草著名的《九十五條論綱》，點燃了宗教改革的火種。
 
 關於泰澤爾，民間流傳最廣的一個傳說是一名騎士事先向他購買了一張的贖罪券，隨後便理直氣壯地搶劫了泰澤爾，並以宣稱自己免於罪責。據傳泰澤爾被搶劫後，原本裝滿金幣的錢箱（Tetzel-Kasten）變得空空如也。在尤特博格的聖尼古拉教堂依然可以看到這個代表贖罪券與宗教改革開端的重要歷史文物。
