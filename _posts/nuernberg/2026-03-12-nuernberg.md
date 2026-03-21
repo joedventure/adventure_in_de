@@ -1,4 +1,4 @@
-![PXL_20241220_132437479~2](https://github.com/user-attachments/assets/22f902f7-fd78-47df-8792-948f29f53824)---
+---
 layout: post
 title: "紐倫堡歷史與景點介紹" #change title
 state_name: "巴伐利亞" #check city name translation
