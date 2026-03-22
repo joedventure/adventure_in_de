@@ -57,7 +57,7 @@ permalink: /brandenburg/jueterbog/
 現在的齊納修道院有一座博物館，裡面展示了修道院的歷史以及後來這個小鎮的發展過程，還保存了古老的手工織布機與相關設備，讓我們能夠體會當時織工們的工作情況。另外絕對不要錯過著名草藥酒Zinnaer Klosterbruder的觀光工廠。憑博物館門票就能免費兌換一杯試喝，在了解生產過程之餘，也能夠親自品嚐這款在地名酒喔！
 
 ## 高等飛行技術學校（Höhere Fliegertechnische Schule） 
-![Jüterbog Rathaus]({{ site.baseurl }}/_image/Jüterbog/Jüterbog HTFS.jpg)
+![Jüterbog HTFS]({{ site.baseurl }}/_image/Jüterbog/Jüterbog_HTFS.jpg)
 在威廉皇帝時期，尤特博格就以德國最大的駐軍城市聞名。然而，戰間期的德國受限於凡爾賽條約而禁止擁有空軍。雖然早在威瑪時期，德國早就與蘇聯秘密展開軍事合作，但是納粹掌權後，他們便更加積極擴軍。在這個背景下，帝國空軍部長赫爾曼·戈林（Hermann Göring）於1933年在極度保密的情況下，於Jüterbog建立了德國商業飛行員學校技術學校（Technische Schule der Deutschen Verkehrsfliegerschule）。這座最初偽裝成民用機構的設施，首要的目的在於培訓維修軍機的技術人員與工程師。在首任指揮官Kurt Studen 的帶領下，第一年即有1500名學員在此受訓。
 
 1940年，隨著原技術學校遷往華沙，柏林的高等飛行技術學校（HFTS）隨之進駐。HFTS承擔了更專業的軍事任務，包括針對新開發裝備培訓技術人員、將無法上戰場的官兵重新培訓為機械工程師，並進行尖端的航空基礎研究，甚至還還培訓了來自芬蘭、克羅埃西亞、保加利亞和羅馬尼亞等國的軍官。
