@@ -6,7 +6,7 @@ state_id: "hessen"
 show_map: false
 slug: alsbacher-schloss
 lang: jp
-permalink: /hessen/jp/alsbacher-schloss/
+permalink: /jp/hessen/alsbacher-schloss/
 ---
 
 ## アルスバッハ城（Alsbacher Schloss）
