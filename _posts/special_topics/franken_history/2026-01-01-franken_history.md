@@ -2,6 +2,7 @@
 layout: post
 show_map: false
 title: "隱秘的德國聯邦州--法蘭克尼亞（Franken）"
+slug: franken_history
 lang: zh
 permalink: /franken_history/
 ---
