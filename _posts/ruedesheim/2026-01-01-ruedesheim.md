@@ -10,6 +10,7 @@ permalink: /hessen/ruedesheim/
 ---
 
 ## 呂德斯海姆城市歷史
+![Rüdesheim]({{ site.baseurl }}/_image/Rüdesheim/Rüd_view.jpg)
 
 ***從羅馬邊境到大主教領地***
 
@@ -55,6 +56,7 @@ permalink: /hessen/ruedesheim/
 詳情請見[中萊茵河谷特輯](https://joedventure.github.io/adventure_in_de/mittelrheintal/#spot-1)👉🏼
 
 ## 尼德瓦爾德紀念碑（Niederwalddenkmal）
+![Niederwalddenkmal]({{ site.baseurl }}/_image/Rüdesheim/Rüd_Niederwalddenkmal.jpg)
 搭乘纜車登上山頂後，馬上就抵達了欣賞萊茵河谷的絕佳觀景點。遠處矗立的尼德瓦爾德紀念碑更是吸引所有目光。這座紀念碑是為了紀念1871年普法戰爭後，普魯士成功統一德意志各邦後建立德意志帝國的事蹟。紀念碑由雕塑家Johannes Schilling與建築師Karl Weißbach共同設計，並於1883年9月28日正式揭幕。
 
 我們首先能看到的是基座上德意志的化身日耳曼尼亞女神（Germania）。她端坐於飾有帝國雄鷹的寶座上，右手高舉帝國皇冠，左手則緊握象徵力量的帝國寶劍，俯瞰萊茵河以及整個新建立的德意志帝國。
@@ -72,6 +74,7 @@ permalink: /hessen/ruedesheim/
 從這裡繼續往前走，會遇見一條 60 公尺長的人造魔法洞穴（Zauberhöhle），接著就是尼德瓦爾德獵宮（Jagdschloss Niederwald）。在這裡可以在路邊的飼料販賣機買些飼料餵草地上的鹿，或買些花的種子隨意灑在草地上，說不定下次來就能看到整自己種的花園。最後就抵達了通往阿斯曼豪森（Assmannshausen）的登山吊椅纜車站，繼續羅曼蒂克之旅的下一階段。
 
 ## 阿斯曼豪森（Assmannshausen）
+![Assmannshausen]({{ site.baseurl }}/_image/Rüdesheim/Rüd_Assmannshausen.jpg)
 從山頂乘坐吊椅纜車到平地，只需要短短十幾分鐘就能抵達阿斯曼豪森了。其實有點刺激，因為登山吊椅纜車只有一個細細的竿子擋住身體，然後高低落差有點大，風只要稍微大一點就會感覺纜車隨時要被吹翻一樣。
 
 這個吊椅纜車的前身是1886年開始營運的齒軌鐵路。隨著第一次世界大戰爆發，齒軌鐵路於1917年停運，1921年正式解散，設施被拆除出售，原本位於山腳的底站改建為住宅。直到1950年代才改建成為現在的吊椅纜車。
@@ -96,11 +99,13 @@ permalink: /hessen/ruedesheim/
 關於萊因斯坦城堡的更多介紹，還請見[中萊茵河谷特輯](https://joedventure.github.io/adventure_in_de/mittelrheintal/#spot-7)👉🏼
 
 ## 斑鳩小巷（Drosselgasse）
+![Drosselgasse]({{ site.baseurl }}/_image/Rüdesheim/Rüd_Drosselgasse.jpg)
 沒走進這個斑鳩小巷就不能說拜訪過呂德斯海姆。
 
 巷子兩旁林立著德式木造建築，店面與餐廳也各自擁有富有特色的招牌跟裝飾。仔細觀察，也不難發現葡萄酒跟斑鳩的裝飾元素遍佈著整個巷子，充分表達了葡萄酒重鎮呂德斯海姆以及斑鳩小鎮的名號。
 
 ## 艾賓根修道院（Kloster Eibingen）
+![Kloster Eibingen]({{ site.baseurl }}/_image/Rüdesheim/Rüd_Kloster Eibingen.jpg)
 艾賓根修道院坐落於呂德斯海姆附近的山丘上，由聖赫德嘉（St. Hildegard）於1165年在這此創立。其實這是聖赫德嘉創立的第二個修道院，第一座是在賓根（Bingen）的魯珀茨山（Rupertsberg）修道院。由於修道院的修女人數在當時快速成長，她才為此在萊因河對岸的山上修建了第二座修道院。
 
 就像先前在魯珀茨山修道院一樣，聖赫德嘉親自參與了艾賓根修道院的規劃與設計。雖然艾賓根修道院的規模不如魯珀茨山修道院，但在三十年戰爭中魯珀茨山修道院被瑞典軍隊摧毀後，修女們只能逃往艾賓根修道院。隨後的150年間，艾賓根修道院遭遇各式的災難，直到1803年因世俗化被解散，財產盡失，修道生活終止，教堂轉由教區管理。在這之後一直有重建計畫，不過重建工程要到1900年才開始進行，直到1904年完工，新的修道院繼承它的前身。
