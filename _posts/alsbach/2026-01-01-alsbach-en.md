@@ -6,10 +6,10 @@ state_id: "hessen"
 show_map: false
 slug: alsbacher-schloss
 lang: en
-permalink: /hessen/en/alsbacher-schloss/
+permalink: /en/hessen/alsbacher-schloss/
 ---
 
-Alsbach Castle (Alsbacher Schloss)
+## Alsbach Castle (Alsbacher Schloss)
 ![Schloss Alsbach]({{ site.baseurl }}/_image/Alsbach/Alsbach.jpg)
 Alsbach Castle (also known as Bickenbach Castle, or Burg Bickenbach) is situated on a hill overlooking the village of Alsbach. Its history dates back to 1235, and it is believed to have been built by Gottfried I von Bickenbach.
 
