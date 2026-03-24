@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Hessen (Hessen)        #need to fit translation
+title: Hesse (Hessen)        #need to fit translation
 map_type: state
 state_id: hessen               #need to fit 
 permalink: /en/hessen/         #for en or jp, add /en or /jp in front of the state name, otherwise just the /state name/
