@@ -10,7 +10,7 @@ permalink: /en/bayern/wuerzburg/
 ---
 
 ## History of Würzburg
-![Würzburg Altstadt]({{ site.baseurl }}/_image/Würzburg/Würzburg Altstadt.jpg)
+![Würzburg Altstadt]({{ site.baseurl }}/_image/Würzburg/Würzburg_Altstadt.jpg)
 As the starting point of the Romantic Road, Würzburg is a city steeped in history. In ancient times, Celtic peoples had already settled in the area where Marienberg Fortress (Festung Marienberg) stands today. During the Migration Period in the 4th and 5th centuries AD, the Alemanni moved into the region. By the 6th and 7th centuries, the Franks began their eastward expansion, incorporating this land into the Merovingian dynasty.
 
 Since the Franks had already converted to Christianity (specifically Catholicism) at that time, the Würzburg area was exposed to the faith quite early. Around 686, the Hiberno-Scottish missionary St. Kilian and his companions preached in the region, successfully converting the Frankish Duke Gosbert and many of his subjects. However, the process was not without conflict; Kilian and his companions Kolonat and Totnan eventually suffered martyrdom for their faith in 689.
@@ -37,6 +37,7 @@ Anyway, I’m sure many of you remember learning about Wilhelm Conrad Röntgen d
 If you are interested in this piece of history, you can visit Röntgen’s former laboratory in Würzburg to see what those early scientific instruments actually looked like.
 
 ## Würzburg Wineries
+![Wine Bottle]({{ site.baseurl }}/_image/Würzburg/Würzburg_wine bottle.jpg)
 Beyond exploring historical sites, a visit to Würzburg wouldn't be complete without experiencing the wines of the Franconia region. Among the many famous estates, Juliusspital Weingut Würzburg stands as the second-largest winery in Germany (the largest being in the state of Hesse). It was established in 1576 by the Prince-Bishop Julius Echter von Mespelbrunn. Since its founding, the site has functioned not only as a winery but also as a hospital and a center for elderly care. If you want to see where the magic happens, look back at the hillside vineyards from Würzburg Main Station—a portion of those vines belongs to Juliusspital.
 
 While I am not yet a wine expert, I find it fascinating that Franconian wines are traditionally bottled in a flat, ellipsoidal flask called a "Bocksbeutel." It is said that this shape was originally used for ease of carrying and transport, and it now serves as a unique way to differentiate their products from wines of other regions.
