@@ -10,7 +10,7 @@ permalink: /bayern/wuerzburg/
 ---
 
 ## 烏茲堡城市歷史 
-![Würzburg Altstadt]({{ site.baseurl }}/_image/Würzburg/Würzburg Altstadt.jpg)
+![Würzburg Altstadt]({{ site.baseurl }}/_image/Würzburg/Würzburg_Altstadt.jpg)
 烏茲堡是羅曼蒂克大道的起點，也是一座歷史悠久的城市。在遠古，凱爾特人就已經在瑪利亞堡（Festung Marienberg）所在的區域定居。在西元4至5世紀的民族大遷徙浪潮中，阿勒曼尼人（Alemannen）遷移至此。到了6至7世紀，法蘭克人開始東進，將這片土地納入墨洛溫王朝（Merowinger）的版圖中。 
 
 由於法蘭克人當時已經皈依基督教（或者應該說是天主教？），烏茲堡這個區域接觸基督教的時間也很早。約在686年，愛爾蘭-蘇格蘭裔的傳教士聖基利安（St. Kilian）就已經跟他的同伴們一起在這個區域佈道，並成功讓當時的法蘭克公爵Gosbert和他的眾多臣民紛紛皈依。然而，這一過程並非一帆風順。基利安與他的同伴Kolonat和Totnan最終於689年為信仰殉道。 
@@ -37,6 +37,7 @@ Anyway，相信朋友們小時候或是國高中都有聽過倫琴(Wilhelm Conra
 如果對這段歷史有興趣，可以來烏茲堡參觀倫琴以前的實驗室，順便看一下以前的儀器長什麼樣子。
 
 ## 烏茲堡酒莊
+![Wine Bottle]({{ site.baseurl }}/_image/Würzburg/Würzburg_wine bottle.jpg)
 除了逛古蹟，來烏茲堡當然不能錯過法蘭克尼亞（Franconia）地區的葡萄酒。在各家有名的酒莊中，Juliusspital Weingut Würzburg是德國第二大的酒莊（最大的在黑森邦），於 1576 年由當時的采邑主教 Julius Echter von Mespelbrunn 建立。從那時候開始，這裡除了酒莊，還有醫院與老年人安養中心。如果想看一下葡萄酒的產區，從烏茲堡主火車站出來回頭看，山坡上那一片葡萄園有一部份就是他們家的。
 
 個人對葡萄酒還沒有太多研究，不過法蘭克尼亞地區的葡萄酒會特別裝在一種叫做Bocksbeutel的扁橢圓形瓶中。據傳他們用這種瓶子是為了好攜帶以及好搬運，而且可以跟其他地區的葡萄酒形成一個產品差異化。
