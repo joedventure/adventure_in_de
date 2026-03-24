@@ -109,13 +109,13 @@ Additionally, near the museum on Weißgerbergasse, you can find Nuremberg's larg
 A legendary hundred-year-old Nuremberg sausage shop that has been grilling right next to St. Sebald Church for 700 years. The flavor is truly extraordinary! The intense charcoal aroma paired with flavorful sauerkraut is incredibly refreshing.
 
 ***Nudeln Studio***
-   
-Still hungry in Germany? Then Nudeln Studio is the place to go.
+
+Still feeling hungry in Germany? Then Nudeln Studio is the place to go.
 
 You can get a free refill of noodles here (as of 2024). Not only that, but the broth is incredibly fragrant and light. You can also add beef slices and chili sauce to dry noodles for a "one-noodle-two-ways" experience—definitely the best choice.
 
 ***Schanzenbräu Schankwirtschaft***
-   
+
 How can you visit Nuremberg without trying Schäufele? The pork shoulder is incredibly tender, and the skin is so crispy it rivals Cantonese roast meats. It pairs perfectly with the chewy, fragrant potato dumplings (Klöße).
 
 The potato soup was served with dark bread and was a bit salty. The third dish ordered was a beef stew, which also went very well with the pan-fried Klöße.
