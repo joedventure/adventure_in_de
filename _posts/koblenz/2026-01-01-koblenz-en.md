@@ -16,7 +16,7 @@ This sculpture, approximately ten meters high, was created by Jürgen Weber and 
 ![Koblenz_Historiensäule]({{ site.baseurl }}/_image/Koblenz/Koblenz_Historiensäule.jpg)
 
 ## History of Koblenz
-***1st to 5th Century: Roman Settlement***
+### ***1st to 5th Century: Roman Settlement***
 
 Koblenz is situated at the magnificent confluence of the Rhine and Mosel rivers. Archaeological evidence shows that human activity here dates back to the Stone Age. On the high ground of Ehrenbreitstein, the Celtic Treveri tribe once built significant fortifications to protect the settlements at the foot of the mountain.
 
@@ -24,49 +24,49 @@ Between approximately 100 and 44 BC, the Romans gradually expanded into this reg
 
 Over the next 500 years, a settlement developed alongside the fort, inhabited by merchants, artisans, and families of soldiers, allowing Koblenz to grow into a vibrant town.
 
-***6th to 9th Century: Royal Estates and Assembly Center***
+### ***6th to 9th Century: Royal Estates and Assembly Center***
 
 Around 470 AD, the Franks took control of Koblenz. Due to its superior strategic location, Koblenz became part of the royal property; the Frankish King Childebert II visited in 585 AD. Furthermore, Koblenz became a frequent meeting place for high-level political figures. The Treaty of Verdun, a pivotal moment in history, was negotiated at the Basilica of St. Castor (Basilika St. Kastor). This treaty led to the division of the Frankish Empire in the following decades, forming the early boundaries of modern Western European nations. Despite this, Koblenz never became the central city of the kingdom.
 
-***10th to 12th Century: From the Frankish Empire to the Electorate of Trier***
+### ***10th to 12th Century: From the Frankish Empire to the Electorate of Trier***
 
 In 925 AD, after the Lotharingia region (including the Archbishopric of Trier) was incorporated into East Francia, the Archbishop of Trier began to show a keen interest in the area between the two rivers. In the early 9th century, Archbishop Hetti of Trier received patronage from King Louis the Pious (Ludwig der Fromme) to establish the Basilica of St. Castor at the confluence. In 1018, Emperor Henry II (Kaiser Heinrich II.) granted the rights of Koblenz, including customs and minting, to the Archbishopric of Trier. From then on, Koblenz remained under the rule of the Prince-Electors of Trier for nearly eight centuries (until 1794), during which the city's infrastructure was established. Meanwhile, centers for trade and handicrafts emerged, along with the earliest urban buildings and markets.
 
-***12th to 13th Century: The Crusades and Slave Trade***
+### ***12th to 13th Century: The Crusades and Slave Trade***
 
 In the Middle Ages, Koblenz was located on one of Europe's most important trade routes. Whether it was logistics along the Rhine or pilgrims and crusaders passing through, everyone had to cross this point. Many local monasteries and hospitals provided accommodation for these travelers, and local markets benefited from the increasing foot traffic. Thus, although Koblenz was not the starting point of the Crusades, the city's development was deeply influenced by them. The oldest surviving customs registers in Koblenz even mention a slave tax, suggesting that these slaves were spoils of war.
 
-***13th to 16th Century: A Prosperous City***
+### ***13th to 16th Century: A Prosperous City***
 
 Between the 13th and 16th centuries, Koblenz developed into a thriving city. Handicrafts and commerce flourished, while monasteries, churches, and the administration of the Electorate of Trier shaped daily life. Relics from this period remain well-preserved, including medieval churches, the Old Castle (Alte Burg) on the banks of the Mosel, and the Mosel Bridge (now the Balduinbrücke) built by Elector Balduin von Luxemburg.
 
 With economic prosperity came increased civic confidence. Guilds were formed, and calls for public participation in government grew louder. New districts rose, markets boomed, and city walls were expanded. Gothic architecture dominated the landscape, accompanied by new religious movements and monastic scholarship. Koblenz became a center of medieval trade and cultural life.
 
-***17th-18th Century: The Thirty Years' War and Witch Hunts***
+### ***17th-18th Century: The Thirty Years' War and Witch Hunts***
 
 During the Thirty Years' War, French and Holy Roman Empire forces fought fiercely for control of Koblenz. The reconstruction efforts following the war were once again wiped out during the War of the Palatine Succession. Although Koblenz was not captured, it suffered heavy damage from French artillery, and the castles of Stolzenfels and Lahneck to the south were destroyed.
 
 Additionally, this period was fraught with religious fear, social tension, famine, and disease. Under the influence of the Counter-Reformation, several witch trials took place, marking a dark chapter in the city's history.
 
-***Circa 1800: The French Revolution***
+### ***Circa 1800: The French Revolution***
 
 With the completion of the Electoral Palace (Kurfürstliches Schloss), Koblenz became a royal residence. However, the turmoil of the French Revolution soon spread here. In 1791-92, numerous French nobles fled to Koblenz for refuge, and Archbishop Clemens Wenceslaus accepted many exiled members of the French royal family, earning the city the nickname "Little Paris." Under the pressure of the unstoppable French army, the Archbishop was forced to flee in 1794. The city surrendered peacefully, and French troops occupied Koblenz, eventually annexing it into France until Russian troops took the city in 1814. Notably, Napoleon and his wife Josephine visited Koblenz in 1804.
 
 During the French occupation, French law, modern administration, and the metric system were introduced. Secularization policies led to the dissolution of church institutions and the nationalization of their property. The political changes brought by French rule profoundly influenced Koblenz into the modern era.
 
-***19th-20th Century: The Prussian Period***
+### ***19th-20th Century: The Prussian Period***
 
 The politician Metternich, who hailed from Koblenz, played a decisive role in the reorganization of Europe after the Napoleonic Wars. At the Congress of Vienna in 1815, the Rhineland and Westphalia were ceded to Prussia, and Koblenz became the seat of the Oberpräsident (High President) of the Rhine Province. From 1817, the Ehrenbreitstein Fortress began construction, becoming one of the strongest bastions in the west of the kingdom.
 
 Throughout the 19th century, Koblenz's development was shaped by its military and administrative roles, which somewhat limited industrial growth. However, shipping trade on the Rhine and tourism flourished. For example, Queen Victoria of the United Kingdom toured the Rhine by boat in 1845 and stayed at the romantic Stolzenfels Castle.
 
-***The World Wars: Destruction of the City***
+### ***The World Wars: Destruction of the City***
 
 During World War I, Koblenz was a key strategic location for the German army heading to the Western Front. After the war, the entire Rhineland was briefly occupied by Allied forces until it returned to German control in 1936. During World War II, 87% of Koblenz's urban area was destroyed in air raids, and the city was occupied by US forces in March 1945. From July of the same year, the city became part of the French occupation zone.
 
 After the war, following the resolutions of the Potsdam Conference, American and French forces stationed in Koblenz facilitated rapid reconstruction. On August 30, 1946, the state of Rhineland-Palatinate (Rheinland-Pfalz) was created here, with Koblenz as its capital until it moved to Mainz in May 1950.
 
-***Today: A Future-Oriented City***
+### ***Today: A Future-Oriented City***
 
 In 1948, the Rittersturz Conference (Rittersturzkonferenz) held in Koblenz made significant contributions to Germany's post-war order, serving as a milestone on the road to the Basic Law. In the following decades, Koblenz developed into the largest garrison city in West Germany.
 
