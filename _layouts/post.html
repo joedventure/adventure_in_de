@@ -40,11 +40,28 @@ layout: default
         .city-static-map-container { flex: 1 1 auto; width: 100%; box-sizing: border-box; }
         #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; opacity: 0.9; }
     }
-    .toc-title { font-weight: bold; text-align: center; margin-bottom: 8px; }
-    #toc-toggle { cursor: pointer; color: #0645ad; font-weight: normal; font-size: 0.85em; margin: 3px; }
-    .toc-list { list-style: none; padding-left: 0; margin: 0; }
-    .toc-list a { text-decoration: none; color: #0645ad; }
-    h2 { border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 40px; color: #202122; }
+
+    /* 主標題樣式 */
+    .toc-h2 {
+      font-weight: bold;
+      margin-top: 8px;
+      list-style: none;
+    }
+
+    /* 子標題樣式：負責縮排與美化 */
+    .toc-h3 {
+      padding-left: 20px; /* 這裡控制縮排 */
+      font-size: 0.9em;
+      list-style: none;
+      opacity: 0.8;       /* 稍微淡化，讓主標題更顯眼 */
+    }
+
+    /* 讓連結點擊範圍變大，更好點 */
+    .toc-list li a {
+      display: inline-block;
+      width: 100%;
+      padding: 2px 0;
+    }
 </style>
 
 <button id="back-to-top" title="Back to Top">↑</button>
@@ -99,33 +116,27 @@ layout: default
             let h2Index = 0;
 
             headings.forEach((heading, index) => {
-                // 為文章中的每一個標題設置 ID 供跳轉
-                const id = `spot-${index}`;
-                heading.setAttribute('id', id);
-        
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = `#${id}`;
+              const id = `toc-anchor-${index}`;
+              heading.setAttribute('id', id);
+    
+              const li = document.createElement('li');
+              const a = document.createElement('a');
+              a.href = `#${id}`;
 
-                // 判斷當前標籤是 H2 還是 H3
-                if (heading.tagName.toLowerCase() === 'h2') {
-                    h2Index++;
-                    // 主標題：加粗 + 數字編號
-                    a.textContent = h2Index + ". " + heading.textContent;
-                    li.style.fontWeight = "bold";
-                    li.style.marginTop = "8px";
-                } else {
-                    // 子標題 (H3)：縮排 + 較小字體 + 不加數字編號
-                    a.textContent = heading.textContent;
-                    li.style.paddingLeft = "20px"; // 關鍵縮排
-                    li.style.fontSize = "0.9em";
-                    li.style.listStyleType = "none";
-                    li.style.color = "#555";
-                }
+              if (heading.tagName.toLowerCase() === 'h2') {
+                  h2Index++;
+                  a.textContent = h2Index + ". " + heading.textContent;
+                  // 貼上主標題的標籤
+                  li.classList.add('toc-h2'); 
+              } else {
+                  a.textContent = heading.textContent;
+                  // 貼上子標題的標籤
+                  li.classList.add('toc-h3'); 
+              }
 
-                li.appendChild(a);
-                tocList.appendChild(li);
-            });
+              li.appendChild(a);
+              tocList.appendChild(li);
+          });
             if (tocToggle) {
                 tocToggle.addEventListener('click', function() {
                     const isHidden = tocList.style.display === 'none';
