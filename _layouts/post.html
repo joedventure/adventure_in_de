@@ -41,26 +41,55 @@ layout: default
         #back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; opacity: 0.9; }
     }
 
+    /* 目錄標題樣式 */
+    .toc-title { 
+      font-weight: bold; 
+      text-align: center; 
+      margin-bottom: 8px; 
+    }
+
+    /* 顯示/隱藏按鈕：移除底線並調整顏色 */
+    #toc-toggle { 
+      cursor: pointer; 
+      color: #444; /* 稍微深灰一點，不要太跳 */
+      font-weight: normal; 
+      font-size: 0.85em; 
+      margin: 3px; 
+      text-decoration: underline; /* 只有開關保留底線，讓它看起來像可以點 */
+    }
+
+    /* 清單容器 */
+    .toc-list { 
+      list-style: none; 
+      padding-left: 0; 
+      margin: 0; 
+    }
+
+    /* --- 關鍵修改：移除連結底線 --- */
+    .toc-list a { 
+      text-decoration: none; /* 移除討厭的底線 */
+      color: #0645ad;       /* 保持藍色，或者你可以改成黑色 #333 */
+      display: block;        /* 讓整列都可以點擊 */
+      padding: 3px 0;
+    }
+
+    /* 滑鼠移上去時才顯示底線（選用，這樣比較有互動感） */
+    .toc-list a:hover { 
+      text-decoration: underline; 
+      background-color: #f8f9fa; /* 稍微有個底色，質感會提升 */
+    }
+
     /* 主標題樣式 */
     .toc-h2 {
       font-weight: bold;
-      margin-top: 8px;
-      list-style: none;
+      margin-top: 5px;
     }
 
-    /* 子標題樣式：負責縮排與美化 */
+    /* 子標題樣式 */
     .toc-h3 {
-      padding-left: 20px; /* 這裡控制縮排 */
+      padding-left: 20px; 
       font-size: 0.9em;
-      list-style: none;
-      opacity: 0.8;       /* 稍微淡化，讓主標題更顯眼 */
-    }
-
-    /* 讓連結點擊範圍變大，更好點 */
-    .toc-list li a {
-      display: inline-block;
-      width: 100%;
-      padding: 2px 0;
+      opacity: 0.8;
     }
 </style>
 
