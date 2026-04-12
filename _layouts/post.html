@@ -140,7 +140,7 @@ layout: default
             tocContainer.style.display = 'table'; 
     
             // 用來計算 h2 的編號（1, 2, 3...）
-            let h2Count = 0;
+            let h2count = 0;
             let h3count = 0;
 
             headings.forEach((heading) => {
@@ -150,17 +150,17 @@ layout: default
 
               if (heading.tagName.toLowerCase() === 'h2') {
                 // 主標題使用 spot-0, spot-1...
-                id = `spot-${h2Count}`;
+                id = `spot-${h2count}`;
                 // 目錄顯示文字：(0+1). 標題 = 1. 標題
-                a.textContent = (h2Count + 1) + ". " + heading.textContent;
+                a.textContent = (h2count + 1) + ". " + heading.textContent;
                 li.classList.add('toc-h2');
-                h2Count++;
+                h2count++;
               } else {
               // 副標題使用 sub-0, sub-1...
-                id = `sub-${h3Count}`;
+                id = `sub-${h3count}`;
                 a.textContent = heading.textContent;
                 li.classList.add('toc-h3');
-                h3Count++;
+                h3count++;
             }
 
             // 設置標題的 ID 與目錄超連結
