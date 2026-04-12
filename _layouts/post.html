@@ -45,17 +45,17 @@ layout: default
     .toc-title { 
       font-weight: bold; 
       text-align: center; 
-      margin-bottom: 8px; 
+      margin-bottom: 5px; 
     }
 
     /* 顯示/隱藏按鈕：移除底線並調整顏色 */
     #toc-toggle { 
       cursor: pointer; 
-      color: #444; /* 稍微深灰一點，不要太跳 */
+      color: #444; 
       font-weight: normal; 
       font-size: 0.85em; 
-      margin: 3px; 
-      text-decoration: underline; /* 只有開關保留底線，讓它看起來像可以點 */
+      margin: 2px; 
+      text-decoration: underline; 
     }
 
     /* 清單容器 */
@@ -65,30 +65,28 @@ layout: default
       margin: 0; 
     }
 
-    /* --- 關鍵修改：移除連結底線 --- */
     .toc-list a { 
-      text-decoration: none; /* 移除討厭的底線 */
-      color: #0645ad;       /* 保持藍色，或者你可以改成黑色 #333 */
-      display: block;        /* 讓整列都可以點擊 */
-      padding: 3px 0;
+      text-decoration: none; 
+      color: #0645ad;       
+      display: block;        
+      padding: 1px 0;
     }
 
-    /* 滑鼠移上去時才顯示底線（選用，這樣比較有互動感） */
     .toc-list a:hover { 
       text-decoration: underline; 
-      background-color: #f8f9fa; /* 稍微有個底色，質感會提升 */
+      background-color: #f8f9fa; 
     }
 
     /* 主標題樣式 */
     .toc-h2 {
       font-weight: bold;
-      margin-top: 5px;
+      margin-top: 2px;
     }
 
     /* 子標題樣式 */
     .toc-h3 {
       padding-left: 20px; 
-      font-size: 0.9em;
+      font-size: 0.7em;
       opacity: 0.8;
     }
 </style>
@@ -142,29 +140,35 @@ layout: default
             tocContainer.style.display = 'table'; 
     
             // 用來計算 h2 的編號（1, 2, 3...）
-            let h2Index = 0;
+            let h2Count = 0;
+            let h3count = 0;
 
-            headings.forEach((heading, index) => {
-              const id = `toc-anchor-${index}`;
-              heading.setAttribute('id', id);
-    
+            headings.forEach((heading) => {
               const li = document.createElement('li');
               const a = document.createElement('a');
-              a.href = `#${id}`;
+              let id;
 
               if (heading.tagName.toLowerCase() === 'h2') {
-                  h2Index++;
-                  a.textContent = h2Index + ". " + heading.textContent;
-                  // 貼上主標題的標籤
-                  li.classList.add('toc-h2'); 
+                // 主標題使用 spot-0, spot-1...
+                id = `spot-${h2Count}`;
+                // 目錄顯示文字：(0+1). 標題 = 1. 標題
+                a.textContent = (h2Count + 1) + ". " + heading.textContent;
+                li.classList.add('toc-h2');
+                h2Count++;
               } else {
-                  a.textContent = heading.textContent;
-                  // 貼上子標題的標籤
-                  li.classList.add('toc-h3'); 
-              }
+              // 副標題使用 sub-0, sub-1...
+                id = `sub-${h3Count}`;
+                a.textContent = heading.textContent;
+                li.classList.add('toc-h3');
+                h3Count++;
+            }
 
-              li.appendChild(a);
-              tocList.appendChild(li);
+            // 設置標題的 ID 與目錄超連結
+            heading.setAttribute('id', id);
+            a.href = `#${id}`;
+              
+            li.appendChild(a);
+            tocList.appendChild(li);
           });
             if (tocToggle) {
                 tocToggle.addEventListener('click', function() {
