@@ -4,11 +4,11 @@ show_map: false
 title: "帕德博恩歷史與景點介紹"
 slug: paderborn
 lang: zh
-permalink: /paderborn/
+permalink: /nordrhein-westfalen/paderborn/
 ---
 
 ## 帕德博恩城市歷史
-![Brömserburg]({{ site.baseurl }}/_image/Mittelrheintal/Rüd_Brömserburg.jpg)
+![xxx]({{ site.baseurl }}/_image/xxx.jpg)
 
 ## 維威爾斯堡（Wewelsburg）
 維威爾斯堡很特別，不僅因為他特殊的三角形結構，還有曾經在這裡黑暗的過往。
