@@ -287,6 +287,13 @@ nordrhein-westfalen:
     lat: 50.7756
     lng: 6.0836
     url: "/nordrhein-westfalen/aachen/"
+  - zh_name: "Paderborn (Paderborn)"
+    en_name: "Paderborn"
+    jp_name: "パーダーボルン (Paderborn)"
+    lat: 51.717
+    lng: 8.767
+    url: "/nordrhein-westfalen/paderborn/"
+    
     
 rheinland-pfalz:
   - zh_name: "美因茨 (Mainz)"
