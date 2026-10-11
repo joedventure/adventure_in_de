@@ -116,7 +116,8 @@ permalink: /bayern/nuernberg/ #add /jp or /en infront of /state/city/. If in zh,
 這裡可以免費加麵一碗（2024）。不僅如此，湯頭超級香又清爽。還可以加牛肉片跟辣椒醬到乾麵裡，來個一麵兩吃，絕對是最棒的選擇。
 
 ### ***Schanzenbräu Schankwirtschaft***
-   
+![Schanzenbräu]({{ site.baseurl }}/_image/Nürnberg/Nürnberg_Schanzenbräu.jpg)
+
 來紐倫堡，怎麼能錯過Schäufele呢？豬肩肉超嫩，上面的皮有夠脆，跟燒臘店的皮一樣。配上香Q口感的馬鈴薯球Klöße實在是太搭了。
 
 馬鈴薯湯配了一個黑麵包，有點鹹。第三道點了一個燉牛肉，配上煎過的Klöße也很搭。
