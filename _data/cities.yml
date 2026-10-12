@@ -101,6 +101,12 @@ brandenburg:
     lat: 52.1914
     lng: 13.4683
     url: "/brandenburg/wuensdorf/"
+  - zh_name: "布蘭登堡 (Brandenburg an der Havel)"
+    en_name: "Brandenburg an der Havel"
+    jp_name: "ブランデンブルク・アン・デア・ハーフェル (Brandenburg an der Havel)"
+    lat: 52.4167
+    lng: 12.5667
+    url: "/brandenburg/brandenburg_adH/"
     
 bremen:
   - zh_name: "不萊梅 (Bremen)"
