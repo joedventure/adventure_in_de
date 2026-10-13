@@ -1,0 +1,150 @@
+// 點擊空白處關閉搜尋結果
+document.addEventListener('click', e => {
+    if (typeof searchInput !== 'undefined' && searchInput && !searchInput.contains(e.target)) {
+        resultsDiv.style.display = 'none';
+    }
+});
+
+if (document.getElementById('map')) {
+    // 建立地圖實例（先給一個概略中心，稍後會自動縮放）
+    const map = L.map('map').setView([48.0, 11.5], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // 1. 各國多語言翻譯總表
+    const stateTranslations = {
+        germany: {
+            "baden-wuerttemberg": { en: "Baden-Württemberg", jp: "バーデン＝ヴュルテンベルク州 (Baden-Württemberg)" },
+            "bayern": { en: "Bavaria", jp: "バイエルン州 (Bayern)" },
+            "berlin": { en: "Berlin", jp: "ベルリン (Berlin)" },
+            "brandenburg": { en: "Brandenburg", jp: "ブランデンブルク州 (Brandenburg)" },
+            "bremen": { en: "Bremen", jp: "ブレーメン州 (Bremen)" },
+            "hamburg": { en: "Hamburg", jp: "ハンブルク (Hamburg)" },
+            "hessen": { en: "Hesse", jp: "ヘッセン州 (Hessen)" },
+            "mecklenburg-vorpommern": { en: "Mecklenburg-Vorpommern", jp: "メクレンブルク＝フォアポンメルン州 (Mecklenburg-Vorpommern)" },
+            "niedersachsen": { en: "Lower Saxony", jp: "ニーダーザクセン州 (Niedersachsen)" },
+            "nordrhein-westfalen": { en: "North Rhine-Westphalia", jp: "ノルトライン＝ヴェストファーレン州 (Nordrhein-Westfalen)" },
+            "rheinland-pfalz": { en: "Rhineland-Palatinate", jp: "ラインラント＝プファルツ州 (Rheinland-Pfalz)" },
+            "saarland": { en: "Saarland", jp: "ザールラント州 (Saarland)" },
+            "sachsen": { en: "Saxony", jp: "ザクセン州 (Sachsen)" },
+            "sachsen-anhalt": { en: "Saxony-Anhalt", jp: "ザクセン＝アンハルト州 (Sachsen-Anhalt)" },
+            "schleswig-holstein": { en: "Schleswig-Holstein", jp: "シュレースヴィヒ＝ホルシュタイン州 (Schleswig-Holstein)" },
+            "thueringen": { en: "Thuringia", jp: "テューリンゲン州 (Thüringen)" }
+        },
+        austria: {
+            "austria": { en: "Austria", jp: "オーストリア共和国 (Österreich)" },
+        },
+        switzerland: {
+            "switzerland": { en: "Switzerland", jp: "スイス連邦 (Switzerland)" },
+        },
+        liechtenstein: {
+            "liechtenstein": { en: "Liechtenstein", jp: "リヒテンシュタイン公国 (Liechtenstein)" }
+        }
+    };
+
+    // 2. 四國設定清單
+const countriesConfig = [
+{
+key: 'germany',
+file: `${baseUrl}/assets/germany_states.json`,
+style: {
+weight: 2, // 邊框寬度
+color: '#3498db', // 填色
+fillOpacity: 0.1 // 填色透明度
+}
+},
+{
+key: 'austria',
+file: `${baseUrl}/assets/austria.json`,
+style: {
+color: '#6B8E23',
+weight: 2,
+fillOpacity: 0.1
+}
+},
+{
+key: 'switzerland',
+file: `${baseUrl}/assets/switzerland.json`,
+style: {
+color: '#C04000',
+weight: 2,
+fillOpacity: 0.1
+}
+},
+{
+key: 'liechtenstein',
+file: `${baseUrl}/assets/liechtenstein.json`,
+style: {
+color: '##FEBE10',
+weight: 2,
+fillOpacity: 0.1
+}
+}
+];
+
+// 3. Hover color change
+function highlightFeature(e) {
+const layer = e.target;
+layer.setStyle({ weight: 5, color: '#2c3e50', fillOpacity: 0.4 });
+layer.bringToFront();
+}
+
+    // 4. 建立用於存放所有國家的圖層群組方便一次管理與計算鏡頭視野
+    const allCountriesGroup = L.featureGroup().addTo(map);
+
+    // 5. 封裝單國載入 Promise
+function loadCountryLayer(config) {
+return fetch(config.file)
+.then(res => res.json())
+.then(data => {
+let countryGeojsonLayer;
+
+// 套用該國家專屬設定的樣式
+countryGeojsonLayer = L.geoJSON(data, {
+style: () => config.style,
+onEachFeature: (feature, layer) => {
+
+// 多語言字典對照
+const sId = feature.properties.id;
+
+let displayName = feature.properties.name;
+
+            if (stateTranslations[sId] && stateTranslations[sId][currentLang]) {
+displayName = stateTranslations[sId][currentLang];
+}
+
+layer.on({
+mouseover: highlightFeature,
+mouseout: (e) => {
+if (countryGeojsonLayer) {
+countryGeojsonLayer.resetStyle(e.target);
+}
+},
+// 修正點擊跳轉
+click: () => {
+window.location.href = getLangPath(`/${feature.properties.id}/`);
+}
+});
+layer.bindTooltip(displayName);
+}
+});
+allCountriesGroup.addLayer(countryGeojsonLayer);
+});
+}
+
+    // 6. 平行載入四國資料並自動縮放視野
+    Promise.allSettled(countriesConfig.map(config => loadCountryLayer(config)))
+        .then(() => {
+            // 只要有任何一個國家成功載入，就調整視角完整包覆
+            if (allCountriesGroup.getLayers().length > 0) {
+                map.fitBounds(allCountriesGroup.getBounds(), {
+                    padding: [30, 30], // 周圍預留 30px 留白
+                    maxZoom: 7 // 避免只有單一小國成功時縮得過近
+                });
+            }
+        });
+}
+
+
