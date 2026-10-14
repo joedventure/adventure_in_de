@@ -425,7 +425,7 @@
         });
         
         if (document.getElementById('map')) {
-            const map = L.map('map').setView([50.5595, 10.7951], 6);
+            const map = L.map('map').setView([50.5595, 10.7951], 8);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -452,14 +452,13 @@
                 "sachsen-anhalt": { en: "Saxony-Anhalt", jp: "ザクセン＝アンハルト州 (Sachsen-Anhalt)" },
                 "schleswig-holstein": { en: "Schleswig-Holstein", jp: "シュレースヴィヒ＝ホルシュタイン州 (Schleswig-Holstein)" },
                 "thueringen": { en: "Thuringia", jp: "テューリンゲン州 (Thüringen)" },
-				
 				// 其他國家，以單一國家為單位）
 				"austria": { en: "Austria", jp: "オーストリア (Österreich)" },
 				"switzerland": { en: "Switzerland", jp: "スイス (Schweiz)" },
 				"liechtenstein": { en: "Liechtenstein", jp: "リヒテンシュタイン公国 (Liechtenstein)" }
             };        
 
-			// 【維護重點 2】各國顏色配置（base 為預設色，hover 為滑鼠移入加深色）
+			// 維護重點 2: 各國顏色配置（base 為預設色，hover 為滑鼠移入加深色）
 			const regionColors = {
 			"austria": { base: "#6B8E23", hover: "#334411" }, 
 			"switzerland": { base: "#C04000", hover: "#662200" }, 
