@@ -18909,7 +18909,7 @@
       "type": "Feature",
 	  "properties": {
         "name": "瑞士 (Schweiz)",
-		"id": "schweiz"
+		"id": "switzerland"
       },
       "geometry": {
         "type": "Polygon",
@@ -28591,7 +28591,7 @@
       "type": "Feature",
 	  "properties": {
         "name": "奥地利 (Österreich)",
-		"id": "oesterreich"
+		"id": "austria"
       },
       "geometry": {
         "type": "Polygon", 
