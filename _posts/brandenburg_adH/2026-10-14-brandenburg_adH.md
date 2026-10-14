@@ -43,7 +43,7 @@ permalink: /brandenburg/brandenburg_adH/
 近年來，這座城市將重心轉向文化與生態，投入巨資整修三大歷史街區，成功將昔日的重工業基地，轉型為融合歷史遺產與自然風光的水上生活模範城市。
 
 ## 城牆與塔
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![Towers]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_Towers.jpg)
 
 布蘭登堡的城牆從14世紀開始建造，現在已經幾乎都消失了，不過我們依舊可以從尚存的城牆、環繞兩個城區的環形道路，以及四座城塔來想像它曾經的風采。
 
@@ -60,7 +60,7 @@ Steintorturm為直徑11公尺、高28.5公尺、厚度最高達到3.5公尺的�
 與Steintorturm風格非常不同，Neustädtischer Mühlentorturm為一座纖細的八角形塔樓。塔身有歌德式的尖形盲拱（Spitzbogenblenden）作為裝飾，內部則是一個三層樓高的古代監獄。
 
 ## 老市政廳（Altstädtisches Rathaus mit Roland）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![Rathaus]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_Rathaus.jpg)
 
 老城區最值得一看的就是老市政廳與門口的巨大羅蘭像了。
 
@@ -77,7 +77,7 @@ Steintorturm為直徑11公尺、高28.5公尺、厚度最高達到3.5公尺的�
 在腓特烈·威廉一世時期，此處曾作為勤務兵（Ordonnanzen）的營房，1753 年後則改作粗棉布工廠。
 
 ## 聖哥特哈德教堂（St. Gotthardtkirche）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![name]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_Gotthardtkirche.jpg)
 
 聖哥特哈德教堂起源於早期德意志商人建於斯拉夫聚落的社區。當時的商人階層對希爾德斯海姆的主教聖哥特哈德崇敬有加，於是將這座新聚落的教堂獻給了他。不過，它最初的可遠不止於一座社區教堂。
 據考證，大約在西元1150年，斯拉夫最後一位君主Pribislaw曾力邀萊茨考（Leitzkau）的修士們來此，並於1160年左右開始建造一座宏偉的羅馬式大教堂，以作為當地的第一座主教座堂。然而，隨著大熊阿爾布雷希特取得政權，隨後主教也跟著收回了主教座堂島（Dominsel）的原址，新主教座堂便移往該處興建。未完工的龐大建築最後由老城的市民接管，改建為老城區的教區教堂。 
@@ -86,7 +86,6 @@ Steintorturm為直徑11公尺、高28.5公尺、厚度最高達到3.5公尺的�
 這座教堂的設計其實借鑑了希爾德斯海姆大教堂，內部則以螺旋狀紋路的圓柱支撐，有著溫潤而協調的空間。而教堂最著名的藝術珍寶，當屬哥德式獨角獸掛毯（Einhornteppich）了。這件作品據推測出自呂訥堡石楠草原（Lüneburger Heide）的修道院，因為那裡是當時距離布蘭登堡最近，且具備製作掛毯的地方。雖然當時市民買不起最頂級的高密度掛毯， 但這件打結密度較低的作品卻陰錯陽差帶來了獨特的像素化視覺效果，仔細看，竟頗有劃時代的表現主義藝術風格！只可惜當初造訪的時候時間太晚，未能親自一探究竟。
 
 ## 斯拉夫體驗村（Slawendorf Brandenburg an der Havel）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
 
 哈弗爾河岸邊有一座斯拉夫村落，個人認為是一個非常有趣的景點。沉浸式的露天歷史體驗園區。走進村落，彷彿穿越回千年前的中世紀早期。園內依考古考證復原了木結構房舍與防禦工事，在這裡不僅可以體驗傳統手工藝與當時的文化，還可以在篝火邊享用當地美食，深度探索當時人們的生活面貌。
 
@@ -113,7 +112,7 @@ Steintorturm為直徑11公尺、高28.5公尺、厚度最高達到3.5公尺的�
 據統計，T4行動在1941年停止前即殺害約七萬人，整個納粹安樂死計畫（含後續行動）在全歐洲估計造成20萬至30萬殘疾與精神病患死亡。T4行動開發的毒氣殺人技術及人員經驗，隨後被直接轉移至波蘭等佔領區的納粹滅絕營，成為後來猶太人大屠殺的大規模滅絕基礎。 
 
 ## 聖凱瑟琳教堂（St. Katharinenkirche）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![Katharinenkirche]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_ St. Katharinenkirche.jpg)
 
 聖凱瑟琳教堂是北德晚期磚哥德式建築的巔峰之作，以外牆鑲嵌的細緻雕像與精美絕倫的花飾窗格山牆著稱。教堂內部，高聳的八角柱展現出極為寬闊的視覺空間，祭壇與管風琴更增添了藝術底蘊。 
 
@@ -124,7 +123,7 @@ Steintorturm為直徑11公尺、高28.5公尺、厚度最高達到3.5公尺的�
 歷史上，聖凱瑟琳教堂亦為布蘭登堡宗教改革不可忽視的重要前哨。16世紀初，教士道德低落與贖罪券爭議激化了宗教矛盾，1520年9月29日，反路德的布蘭登堡主教選擇將針對馬丁·路德的驅逐令直接張貼於聖凱瑟琳教堂大門。然而抗爭的火種已然點燃，教堂的第一位福音派預備牧師Thomas Baytz打破傳統，改以德語主持彌撒，逐步引導信眾轉向路德宗思想。到了1536年，布蘭登堡市政廳以轉移教堂銀器寶藏至柏林選帝侯銀庫為代價，獲得選帝侯約阿希姆二世批准實施福音派崇拜，使聖凱瑟琳教堂成為該區域最早正式落實宗教改革的教堂之一，路德的摯友Erasmus Alberus隨後亦在此擔任第二任福音派牧師，見證了這座古老聖殿跨入新教時代的關鍵歷程。
 
 ## 布蘭登堡主教座堂（Dom zu Brandenburg）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![Dom]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_Dom.jpg)
 
 Dominsel顧名思義就是主座教堂島，布蘭登堡的主教座堂當然就建造在這了。這裡不僅是布蘭登堡最古老的建築與發源地，更深深繫著整個區域的歷史脈絡。
 
@@ -139,7 +138,7 @@ Dominsel顧名思義就是主座教堂島，布蘭登堡的主教座堂當然就
 二戰期間，由於及時採取了嚴密的防空保護措施，教堂幸運地免於戰火摧毀。在二十一世紀的現代，這裡不僅在2006年創立了附屬高中，更在2009年完成了北修道院的修復，使十五世紀精美的哥德式壁畫重見天日。大教堂在2015年隆重慶祝了奠基850週年，以歷久彌新的姿態繼續守護著這片土地的文化根基。
 
 ## 舊城堡磨坊（Ehemalige Burgmühle）
-![name]({{ site.baseurl }}/_image/brandenburg_adH//xxx.jpg)
+![Burgmühle]({{ site.baseurl }}/_image/Brandenburg_adH/BRB_Burgmühle.jpg)
 
 在主教座堂島北端有一棟龐大的建築物，彷彿浮在哈弗爾河上。這座如今充滿生活氣息的水岸住宅，過去曾是布蘭登堡極具代表性的水磨坊Burgmühle以及麵粉儲藏庫。 
 
