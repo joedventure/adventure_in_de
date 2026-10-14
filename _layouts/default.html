@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'zh-Hant' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+        
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* --- 基礎配色與字體 --- */
+        body { 
+            font-family: "Helvetica Neue", "Helvetica", "Main", "Microsoft JhengHei", sans-serif; 
+            background-color: #f4f7f9; 
+            color: #333; 
+            margin: 0; 
+            line-height: 1.7; 
+        }
+        
+        /* --- 兩欄式容器佈局 --- */
+        .main-container { 
+            max-width: 1200px; 
+            margin: 30px auto; 
+            padding: 0 20px; 
+            display: flex; 
+            gap: 30px; 
+        }
+
+        /* 左側主欄位 */
+        .content-area { 
+            flex: 3; 
+            min-width: 0; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+        }
+
+        /* 地圖樣式 */
+        #map { 
+            height: 550px; 
+            width: 100%; 
+            background: #e9ecef; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+            border: 1px solid #ddd;
+        }
+
+        /* --- 右側側邊欄樣式 --- */
+        .sidebar { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 20px; 
+        }
+        .sidebar-card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            border-top: 4px solid #2c3e50;
+        }
+        .sidebar-card h3 { 
+            color: #2c3e50; 
+            font-size: 1.1rem; 
+            margin-top: 0; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; 
+        }
+        .sidebar-card ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-card li { 
+            margin: 12px 0; 
+            border-bottom: 1px dashed #eee; 
+            padding-bottom: 8px; 
+            font-size: 14px;
+        }
+        .sidebar-card a { 
+            text-decoration: none; 
+            color: #3498db; 
+            font-weight: 500; 
+            transition: color 0.2s;
+        }
+        .sidebar-card a:hover { color: #1a5a96; text-decoration: underline; }
+
+        /* 語言切換按鈕專屬樣式 */
+        .btn-lang {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 0 15px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 25px; 
+            text-decoration: none;
+            background-color: #2c3e50; 
+            color: #ffffff !important;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        .btn-lang:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .icon-spacing {
+            margin-right: 6px;
+            font-size: 1.1em; 
+            line-height: 1;
+        }
+        
+        /* --- 導覽按鈕 --- */
+        .nav-buttons { margin-bottom: 20px; display: flex; gap: 10px; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 38px;
+            padding: 0 18px;
+            border-radius: 25px;
+            text-decoration: none; 
+            color: white; 
+            font-size: 14px; 
+            font-weight: 500;
+            transition: opacity 0.2s;
+            line-height: 1;          
+        }
+        
+        .btn-home { background: #2c3e50; }
+        .btn-back { background: #2c3e50; }
+        .btn:hover { opacity: 0.9; }
+
+        .visitor-stat { 
+            font-family: "Courier New", Courier, monospace; 
+            font-weight: bold; 
+            color: #2c3e50; 
+            font-size: 1.2rem; 
+        }
+
+        footer { 
+            margin-top: 60px; 
+            padding: 40px 20px; 
+            background: #2c3e50; 
+            color: #bdc3c7; 
+            text-align: center; 
+            font-size: 14px; 
+        }
+        .footer-line { display: block; margin-bottom: 5px; }
+
+        /* --- 手機版導覽按鈕優化 --- */
+        @media (max-width: 900px) {
+            /* 1. 讓佈局變垂直，側邊欄自動掉到下方 */
+            .main-container { flex-direction: column; }
+            .sidebar { order: 2; }
+
+            /* 2. 修正地圖高度 */
+            #map { height: 400px; }
+    
+            .nav-buttons {
+                flex-wrap: wrap; /* 允許按鈕自動換行，避免擠壓 */
+                gap: 8px;
+            }
+
+            .btn, .btn-lang {
+                flex: 1 1 auto;   /* 讓按鈕在必要時自動分配寬度 */
+                min-width: fit-content; /* 確保按鈕不會縮小到文字溢出 */
+                padding: 0 12px;  /* 稍微縮小內距以節省空間 */
+                font-size: 13px;  /* 稍微縮小字體 */
+                white-space: nowrap; /* 限制文字不換行 */
+            }      
+
+            /* 如果有三個按鈕，讓語言切換按鈕在手機上可以更明顯 */
+            .btn-lang { justify-content: center; }
+        }
+
+        .leaflet-interactive:hover { cursor: pointer; }
+
+        /*set style of the search bar*/
+        .search-results-dropdown {
+            position: absolute; top: 100%; left: 0; right: 0;
+            background: white; border: 1px solid #ddd; border-radius: 8px;
+            z-index: 2000; max-height: 250px; overflow-y: auto;
+             display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-top: 5px;
+        }
+        
+        .search-item { padding: 12px 20px; display: block; color: #333; text-decoration: none; border-bottom: 1px solid #eee; }
+        
+        .search-item:hover { background: #f0f7fd; color: #3498db; }
+        
+    </style>
+    
+</head>
+<body>
+
+    <div class="main-container">
+        <main class="content-area">
+            
+            <div class="search-box-container" style="margin: 20px 0; position: relative;">
+                <input type="text" id="citySearch" 
+                    placeholder="{% if page.lang == 'en' %}Search city...{% elsif page.lang == 'jp' %}都市検索...{% else %}搜尋城市...{% endif %}" 
+                    style="width: 100%; padding: 12px 20px; border: 2px solid #2c3e50; border-radius: 30px; font-size: 16px; box-sizing: border-box; outline: none;">
+                <div id="searchResults" class="search-results-dropdown"></div>
+            </div>
+            
+            <div class="nav-buttons">
+                {% if page.slug != "home" %}
+                    {% comment %} 改進：更嚴謹的首頁路徑判斷 {% endcomment %}
+                    {% capture home_url %}/{% if page.lang == "en" %}en/{% elsif page.lang == "jp" %}jp/{% endif %}{% endcapture %}
+
+                    <a href="{{ home_url | relative_url }}" class="btn btn-home">
+                        {% if page.lang == "en" %} 🏠 Return to Germany Map
+                        {% elsif page.lang == "jp" %} 🏠 全ドイツ地圖へ
+                        {% else %} 🏠 返回全德地圖
+                        {% endif %}
+                    </a>
+                {% endif %}
+                
+                {% if page.layout == "post" %}
+                    {% comment %} 改進：邦列表路徑需包含語言前綴 {% endcomment %}
+                    {% if page.lang == "en" %}
+                        {% assign state_url = "/en/" | append: page.state_id | append: "/" %}
+                    {% elsif page.lang == "jp" %}
+                        {% assign state_url = "/jp/" | append: page.state_id | append: "/" %}
+                    {% else %}
+                        {% assign state_url = "/" | append: page.state_id | append: "/" %}
+                    {% endif %}
+
+                    <a href="{{ state_url | relative_url }}" class="btn btn-back">
+                        {% if page.lang == "en" %} ⬅️ Back to {{ page.state_name }} List
+                        {% elsif page.lang == "jp" %} ⬅️ {{ page.state_name }} 一覧へ
+                        {% else %} ⬅️ 返回 {{ page.state_name }} 列表
+                        {% endif %}
+                    </a>
+                {% endif %}
+
+                {% if page.slug %}
+                    {% assign all_docs = site.documents | concat: site.pages %}
+                    {% assign siblings = all_docs | where: "slug", page.slug %}
+                
+                    {% for sibling in siblings %}
+                        {% if sibling.lang != page.lang %}
+                            <a href="{{ sibling.url | relative_url }}" class="btn btn-lang">
+                                {% if sibling.lang == "zh" %}
+                                    <span class="icon-spacing">🇹🇼</span> 繁體中文
+                                {% elsif sibling.lang == "en" %}
+                                    <span class="icon-spacing">🌍</span> EN
+                                {% elsif sibling.lang == "jp" %}
+                                    <span class="icon-spacing">🇯🇵</span> JP
+                                {% endif %}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <h1>{{ page.title }}</h1>
+
+            {% if page.show_map != false %}
+                <div id="map"></div>
+            {% endif %}
+
+            <div class="content">
+                {{ content }}
+            </div>
+
+            {% if page.map_type == "state" %}
+            <div class="quick-access" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 30px 0; border: 1px solid #eee;">
+                <h3 style="margin-top: 0; font-size: 1.2rem; border-left: 4px solid #3498db; padding-left: 10px;">
+                    {% if page.lang == "en" %}Hop on the City Express below 🚅 Guaranteed to be faster than the Deutsche Bahn!
+                    {% elsif page.lang == "jp" %}下の新幹線で直行！🚅 ドイツ鉄道よりも確実に早いです！
+                    {% else %}搭乘下面的城市直達車🚅 絕對比德鐵更快！{% endif %}
+                </h3>
+                <div class="city-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 15px;">
+                    {% assign name_key = page.lang | append: "_name" %}
+                    {% assign state_cities = site.data.cities[page.state_id] %}
+                    {% for city in state_cities %}
+                    {% if page.lang == "en" %}{% assign prefix = "/en" %}
+                    {% elsif page.lang == "jp" %}{% assign prefix = "/jp" %}
+                    {% else %}{% assign prefix = "" %}{% endif %}
+                    <a href="{{ prefix | append: city.url | relative_url }}" 
+                        style="display: block; padding: 10px; background: white; border: 1px solid #3498db; color: #3498db; text-align: center; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500;">
+                        {{ city[name_key] }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            
+        </main>
+
+        <aside class="sidebar">
+            {% comment %} 2- Side bar 語言相對應更新 {% endcomment %}
+            <section class="sidebar-card">
+                {% capture home_url %}/{% if page.lang == "en" %}en/{% elsif page.lang == "jp" %}jp/{% endif %}{% endcapture %}
+
+                <h3>🔍 
+                    {% if page.lang == "en" %}Explore Special Topics{% elsif page.lang == "jp" %}特別テーマを探索する{% else %}專題漫遊{% endif %}
+                </h3>
+                <ul>
+                    <li><a href="{{ home_url | relative_url }}mittelrheintal/">{% if page.lang == "en" %}🏰 A Journey Through the Castles of the Middle Rhine{% elsif page.lang == "jp" %}🏰 中ライン渓谷の古城巡り{% else %}🏰 中萊茵河谷城堡巡禮{% endif %}</a></li>
+                    <li><a href="{{ home_url | relative_url }}franken_history/">{% if page.lang == "en" %}🇩🇪 The Hidden German State: Franconia{% elsif page.lang == "jp" %}🇩🇪 ドイツの秘められた連邦州：フランケン地方{% else %}🇩🇪 隱秘的德國聯邦州--法蘭克尼亞{% endif %}</a></li>
+                    <li><a href="{{ home_url | relative_url }}berlin_ddr/">{% if page.lang == "en" %}🚩 Tracing the Red Legacy in Berlin {% elsif page.lang == "jp" %}🚩 ベルリンに刻まれた赤の記憶を辿って{% else %}🚩 追尋柏林的紅色印記{% endif %}</a></li>
+                </ul>
+            </section>
+            
+            <section class="sidebar-card">
+                <h3>📱 
+                    {% if page.lang == "en" %}Contact Joe{% elsif page.lang == "jp" %}Joeの連絡先{% else %}Joe的聯絡方式{% endif %}
+                </h3>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/people/%E7%95%99%E5%BE%B7%E8%8F%AFJoe/61564955070082/" target="_blank">📘 Facebook</a></li>
+                    <li><a href="https://www.instagram.com/adventure_in_de/" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.threads.com/@adventure_in_de" target="_blank">🧵 Threads</a></li>
+                    <li><a href="https://docs.google.com/forms/d/1edkoesgg31u03yiSkV6ztG-ICXmCEXX_CMJOhqyBjFA/viewform?edit_requested=true" target="_blank">📨 {% if page.lang == "en" %}Contact Joe via Google Form{% elsif page.lang == "jp" %}Joeへ連絡 (Googleフォーム){% else %}Google表單聯絡Joe{% endif %}</a></li>
+                    <li><a href="https://ko-fi.com/adventure_in_de" target="_blank">☕ {% if page.lang == "en" %}Buy Joe a Coffee!{% elsif page.lang == "jp" %}Joeにコーヒーを奢る!{% else %}請Joe喝杯咖啡!{% endif %}</a></li>
+                </ul>
+            </section>
+
+            <section class="sidebar-card">
+                <h3>🕵️🧭 
+                    {% if page.lang == "en" %}About Joe{% elsif page.lang == "jp" %}Joeについて{% else %}關於Joe{% endif %}
+                </h3>
+                <p style="font-size: 14px; margin-bottom: 5px;">
+                    {% if page.lang == "en" %}A leisurely traveler in Germany<br>Skilled at typing and sharing histories{% elsif page.lang == "jp" %}ドイツに住んでいて（多少の余暇時間あり）<br>歴史的な話をタイピングして共有するのが得意な人{% else %}旅居德國的(閒)人<br>擅長打字、分享歷史故事{% endif %}
+                </p>
+            </section>
+
+            {% comment %} Placeholder for website visitor count
+            <section class="sidebar-card">
+                <h3>📈 
+                    {% if page.lang == "en" %}Statistics{% elsif page.lang == "jp" %}統計{% else %}網站統計{% endif %}
+                </h3>
+                <p style="font-size: 14px; margin-bottom: 5px;">{% if page.lang == "en" %}Total Visitors:{% elsif page.lang == "jp" %}累計訪問者数：{% else %}總訪客人數：{% endif %}</p>
+                <span class="visitor-stat" id="busuanzi_value_site_pv">--</span>
+            </section>
+            {% endcomment %}
+            
+        </aside>
+    </div>
+
+    <footer>
+        <i class="footer-line">Copyright © {{ "now" | date: "%Y" }} Adventure_in_de. All Rights Reserved. All original content — including but not limited to text, images, design, code, and multimedia — is protected under international copyright treaties. Unauthorized reproduction, modification, distribution, public transmission, or commercial use is strictly prohibited. Legal action will be taken against infringement.</i>
+        <i class="footer-line">Copyright © {{ "now" | date: "%Y" }} Adventure_in_de。保留所有權利。本專案之原創內容（包括但不限於文字、圖片、設計、程式碼及多媒體素材）均受國際著作權法保護。未經授權，嚴禁任何形式之轉載、修改、散佈、公開傳輸或商業使用，違者必究。</i>
+        <i class="footer-line">AI-powered translation--Feedback on improvements is appreciated!</i>
+        <i class="footer-line" style="font-size: 12px; opacity: 0.7; margin-top: 10px;">
+        Powered by <a href="https://leafletjs.com/" target="_blank" style="color: inherit;">Leaflet</a> & 
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: inherit;">OpenStreetMap</a> contributors 
+        </i>    
+            
+        {% comment %} leave out the note for page visitor count   
+        Powered by <a href="https://leafletjs.com/" target="_blank" style="color: inherit;">Leaflet</a>, 
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" style="color: inherit;">OpenStreetMap</a> contributors & 
+        <a href="https://busuanzi.ibruce.info/" target="_blank" style="color: inherit;">Busuanzi</a>. 
+        {% endcomment %}    
+            
+    </footer>
+
+    {% comment %} Placeholder for page visitor count
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    {% endcomment %}
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>      
+        const baseUrl = "{{ site.baseurl }}";
+        const currentLang = "{{ page.lang }}";
+        
+        // 建立輔助函式確保 JS 跳轉路徑包含語言前綴
+        function getLangPath(path) {
+            let langPrefix = "";
+            if (currentLang === "en") langPrefix = "/en";
+            else if (currentLang === "jp") langPrefix = "/jp";
+            
+            // 確保路徑拼接不會出現雙斜線
+            const fullPath = `${baseUrl}${langPrefix}${path}`;
+            return fullPath.replace(/\/+/g, '/');
+        }
+        
+        // 下載搜尋索引 (從 YAML 攤平所有城市)
+        const allCities = [
+            {% for state in site.data.cities %}
+                {% for city in state[1] %}
+                    {
+                        "zh": {{ city.zh_name | jsonify }} || "",
+                        "en": {{ city.en_name | jsonify }} || "",
+                        "jp": {{ city.jp_name | jsonify }} || "",
+                        "url": {{ city.url | jsonify }}
+                    }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+                {% endfor %}
+            {% endfor %}
+        ];
+
+        // 搜尋功能 (大小寫不敏感)
+        const searchInput = document.getElementById('citySearch');
+        const resultsDiv = document.getElementById('searchResults');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                resultsDiv.innerHTML = '';
+                if (query.length < 1) { resultsDiv.style.display = 'none'; return; }
+
+                const filtered = allCities.filter(c => 
+                    c.zh.toLowerCase().includes(query) || 
+                    c.en.toLowerCase().includes(query) || 
+                    c.jp.toLowerCase().includes(query)
+                );
+
+                if (filtered.length > 0) {
+                    filtered.forEach(c => {
+                        const a = document.createElement('a');
+                        a.className = 'search-item';
+                        a.textContent = c[currentLang] || c.en;
+                        a.href = getLangPath(c.url);
+                        resultsDiv.appendChild(a);
+                    });
+                    resultsDiv.style.display = 'block';
+                } else {
+                    resultsDiv.style.display = 'none';
+                }
+            });
+        }
+
+        // 點擊空白處關閉搜尋結果
+        document.addEventListener('click', e => {
+            if (searchInput && !searchInput.contains(e.target)) resultsDiv.style.display = 'none';
+        });
+        
+        if (document.getElementById('map')) {
+            const map = L.map('map').setView([50.5595, 10.7951], 6);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Set map style for the home page
+            {% if page.map_type == "germany" %}
+
+            // 維護重點 1: State name and "other country" translation table    
+            const stateTranslations = {
+                "baden-wuerttemberg": { en: "Baden-Württemberg", jp: "バーデン＝ヴュルテンベルク州 (Baden-Württemberg)" },
+                "bayern": { en: "Bavaria", jp: "バイエルン州 (Bayern)" },
+                "berlin": { en: "Berlin", jp: "ベルリン (Berlin)" },
+                "brandenburg": { en: "Brandenburg", jp: "ブランデンブルク州 (Brandenburg)" },
+                "bremen": { en: "Bremen", jp: "ブレーメン州 (Bremen)" },
+                "hamburg": { en: "Hamburg", jp: "ハンブルク (Hamburg)" },
+                "hessen": { en: "Hesse", jp: "ヘッセン州 (Hessen)" },
+                "mecklenburg-vorpommern": { en: "Mecklenburg-Vorpommern", jp: "メクレンブルク＝フォアポンメルン州 (Mecklenburg-Vorpommern)" },
+                "niedersachsen": { en: "Lower Saxony", jp: "ニーダーザクセン州 (Niedersachsen)" },
+                "nordrhein-westfalen": { en: "North Rhine-Westphalia", jp: "ノルトライン＝ヴェストファーレン州 (Nordrhein-Westfalen)" },
+                "rheinland-pfalz": { en: "Rhineland-Palatinate", jp: "ラインラント＝プファルツ州 (Rheinland-Pfalz)" },
+                "saarland": { en: "Saarland", jp: "ザールラント州 (Saarland)" },
+                "sachsen": { en: "Saxony", jp: "ザクセン州 (Sachsen)" },
+                "sachsen-anhalt": { en: "Saxony-Anhalt", jp: "ザクセン＝アンハルト州 (Sachsen-Anhalt)" },
+                "schleswig-holstein": { en: "Schleswig-Holstein", jp: "シュレースヴィヒ＝ホルシュタイン州 (Schleswig-Holstein)" },
+                "thueringen": { en: "Thuringia", jp: "テューリンゲン州 (Thüringen)" },
+				
+				// 其他國家，以單一國家為單位）
+				"austria": { en: "Austria", jp: "オーストリア (Österreich)" },
+				"switzerland": { en: "Switzerland", jp: "スイス (Schweiz)" },
+				"liechtenstein": { en: "Liechtenstein", jp: "リヒテンシュタイン公国 (Liechtenstein)" }
+            };        
+
+			// 【維護重點 2】各國顏色配置（base 為預設色，hover 為滑鼠移入加深色）
+			const regionColors = {
+			"austria": { base: "#6B8E23", hover: "#334411" }, 
+			"switzerland": { base: "#C04000", hover: "#662200" }, 
+			"liechtenstein": { base: "#FEBE10", hover: "#997100" }, 
+			"default": { base: "#3498db", hover: "#2c3e50" } // for Germany
+			};
+
+			function getRegionColors(id) {
+			return regionColors[id] || regionColors["default"];
+			}
+	
+            let geojson;
+			
+			function style(feature) {
+				const colors = getRegionColors(feature.properties.id);
+				return { fillOpacity: 0.1, color: colors.base, weight: 2 };
+			}
+			
+			function highlightFeature(e) {
+				let layer = e.target;
+				const colors = getRegionColors(layer.feature.properties.id);
+				layer.setStyle({ weight: 5, color: colors.hover, fillOpacity: 0.4 });
+				layer.bringToFront();
+			}
+			
+            function resetHighlight(e) { geojson.resetStyle(e.target); }
+
+            fetch(`${baseUrl}/assets/germany_states.json`)
+                .then(res => res.json())
+                .then(data => {
+                    geojson = L.geoJSON(data, {
+                        style: style,
+                        onEachFeature: (feature, layer) => {
+                            // 1. 取得該邦或該國的 ID
+                            const sId = feature.properties.id;
+                
+                            // 2. 根據目前語言抓取名稱，若無對應則回退到 JSON 裡的預設中文名
+                            let displayName = feature.properties.name; 
+                            if (stateTranslations[sId] && stateTranslations[sId][currentLang]) {
+                                displayName = stateTranslations[sId][currentLang];
+                            }
+                            
+                            layer.on({
+                                mouseover: highlightFeature,
+                                mouseout: resetHighlight,
+                                // 點擊跳轉至對應邦或國家頁面
+                                click: () => { window.location.href = getLangPath(`/${feature.properties.id}/`); }
+                            });
+                            layer.bindTooltip(displayName);
+                        }
+                    }).addTo(map);
+					
+					// 自動調整地圖視角以完整涵蓋所有國家
+					if (geojson.getLayers().length > 0) {
+						map.fitBounds(geojson.getBounds(), { padding: [20, 20] });
+					}
+                });
+
+            // Set map style for each state or single country
+            {% elsif page.map_type == "state" %}
+                {% assign lang = page.lang | default: "zh" %}
+                {% assign name_key = lang | append: "_name" %}
+                {% assign raw_cities = site.data.cities[page.state_id] %}
+
+                const currentLang = "{{ lang }}";
+                const labels = {
+                    "zh": "點擊查看",
+                    "en": "View Details",
+                    "jp": "詳細を見る",
+                };
+                const label = labels[currentLang] || labels["zh"];
+
+                fetch(`${baseUrl}/assets/germany_states.json`)
+                    .then(res => res.json())
+                    .then(data => {
+                        const currentStateId = "{{ page.state_id }}";
+                        const stateLayer = L.geoJSON(data, {
+                            filter: (f) => (f.id === currentStateId || f.properties.id === currentStateId),
+                            style: { color: "#2c3e50", weight: 3, fillColor: "#3498db", fillOpacity: 0.1 }
+                        }).addTo(map);
+                        if (stateLayer.getLayers().length > 0) map.fitBounds(stateLayer.getBounds(), { padding: [30, 30] });
+                    });
+
+                const stateCities = [
+                    {% for city in raw_cities %}
+                    {
+                        "name": {{ city[name_key] | jsonify }},
+                        "lat": {{ city.lat }},
+                        "lng": {{ city.lng }},
+                        "url": {{ city.url | jsonify }}
+                    }{% unless forloop.last %},{% endunless %}
+                    {% endfor %}
+                ];
+
+                if (typeof map !== 'undefined' && stateCities.length > 0) {
+                    stateCities.forEach(city => {
+                        L.marker([city.lat, city.lng])
+                            .addTo(map)
+                            .bindPopup(`
+                                <b>${city.name}</b>
+                                ${city.url 
+                                    ? `<br><a href="${getLangPath(city.url)}">👉 ${label}</a>` 
+                                    : ''
+                                }
+                            `);
+                    });
+                }
+            {% endif %}
+        }
+    </script>
+</body>
+</html>
