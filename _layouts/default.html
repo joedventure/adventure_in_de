@@ -511,11 +511,6 @@
                             layer.bindTooltip(displayName);
                         }
                     }).addTo(map);
-					
-					// 自動調整地圖視角以完整涵蓋所有國家
-					if (geojson.getLayers().length > 0) {
-						map.fitBounds(geojson.getBounds(), { padding: [20, 20] });
-					}
                 });
 
             // Set map style for each state or single country
