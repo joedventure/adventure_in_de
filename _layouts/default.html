@@ -207,9 +207,9 @@
                     {% capture home_url %}/{% if page.lang == "en" %}en/{% elsif page.lang == "jp" %}jp/{% endif %}{% endcapture %}
 
                     <a href="{{ home_url | relative_url }}" class="btn btn-home">
-                        {% if page.lang == "en" %} 🏠 Return to Germany Map
-                        {% elsif page.lang == "jp" %} 🏠 全ドイツ地圖へ
-                        {% else %} 🏠 返回全德地圖
+                        {% if page.lang == "en" %} 🏠 Back to Full Map
+                        {% elsif page.lang == "jp" %} 🏠 全体マップに戻る
+                        {% else %} 🏠 返回全區地圖
                         {% endif %}
                     </a>
                 {% endif %}
