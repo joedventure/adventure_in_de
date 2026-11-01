@@ -1,3 +1,11 @@
+austria:
+  - zh_name: "維也納 (Wien)"
+    en_name: "Vienna"
+    jp_name: "ウィーン (Wien)"
+    lat: 48.2083
+    lng: 16.3725
+    url: "/austria/wien/"
+
 baden-wuerttemberg:
   - zh_name: "海德堡 (Heidelberg)"
     en_name: "Heidelberg"
