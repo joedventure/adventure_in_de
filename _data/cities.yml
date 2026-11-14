@@ -278,6 +278,7 @@ mecklenburg-vorpommern:
     jp_name: "ノイブランデンブルク (Neubrandenburg)"
     lat: 53.5569
     lng: 13.2611
+    url: "/mecklenburg-vorpommern/neubrandenburg/"
     
 niedersachsen:
   - zh_name: "漢諾威 (Hannover)"
