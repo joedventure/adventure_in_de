@@ -273,6 +273,11 @@ mecklenburg-vorpommern:
     lat: 53.8925
     lng: 11.4647
     url: "/mecklenburg-vorpommern/wismar/"
+  - zh_name: "新布蘭登堡 (Neubrandenburg)"
+    en_name: "Neubrandenburg"
+    jp_name: "ノイブランデンブルク (Neubrandenburg)"
+    lat: 53.5569
+    lng: 13.2611
     
 niedersachsen:
   - zh_name: "漢諾威 (Hannover)"
